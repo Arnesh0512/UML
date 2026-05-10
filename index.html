@@ -889,6 +889,60 @@ main {
   font-size: 1.08rem;
 }
 
+.er-card .diagram {
+  margin-top: 1rem;
+}
+
+.er-mermaid {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 24px;
+  background: #111111;
+  overflow-x: auto;
+}
+
+.er-reference-diagram {
+  margin-top: 1rem;
+  padding: 0;
+  border-radius: 24px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.er-reference-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.er-explanation {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.er-explanation .mini-card {
+  padding: 1.1rem 1.2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(187, 157, 104, 0.28);
+}
+
+.er-explanation h4 {
+  margin: 0 0 0.65rem;
+  color: #0a5f68;
+  font-size: 1.1rem;
+}
+
+.er-explanation ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.er-explanation li + li {
+  margin-top: 0.45rem;
+}
+
 .stack {
   display: grid;
   gap: 1.4rem;
@@ -1905,73 +1959,118 @@ main {
         <span>06</span>
         <h2>ER Diagram</h2>
       </div>
-      <div class="card diagram-card">
-        <svg viewBox="0 0 1180 760" class="diagram">
-          <defs>
-            <marker id="erArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
-            </marker>
-          </defs>
+      <div class="card diagram-card topic-card er-card">
+        <div class="topic-banner">
+          <p class="topic-tag">Database Design Model</p>
+          <h3>Entity Relationship Diagram of the Tourist Safety System</h3>
+          <p class="topic-summary">
+            This ER diagram presents the core data entities, their attributes, and the relationships used to manage
+            tourists, services, alerts, zones, and emergency tracking in the system.
+          </p>
+        </div>
+        <pre class="mermaid er-mermaid">
+erDiagram
+    TOURIST ||--o{ LOCATION_LOG : sends
+    LOCATION_LOG }o--|| SAFETY_ZONE : checked_in
+    SAFETY_ZONE ||--o{ ALERT : triggers
+    TOURIST ||--o{ SERVICE_PROVIDER : provides
+    ADMIN ||--o{ SERVICE_PROVIDER : verifies
+    TOURIST ||--o| IOT_DEVICE : pairs
+    POLICE_RESCUE ||--o{ ALERT : handles
+    POLICE_RESCUE ||--o{ SAFETY_ZONE : updates
 
-          <g class="entity">
-            <rect x="60" y="90" width="210" height="80"></rect>
-            <text x="165" y="138" text-anchor="middle" class="diagram-title">Tourist</text>
-          </g>
-          <g class="entity">
-            <rect x="330" y="90" width="210" height="80"></rect>
-            <text x="435" y="138" text-anchor="middle" class="diagram-title">Location_Log</text>
-          </g>
-          <g class="entity">
-            <rect x="610" y="90" width="210" height="80"></rect>
-            <text x="715" y="138" text-anchor="middle" class="diagram-title">Safety_Zone</text>
-          </g>
-          <g class="entity">
-            <rect x="900" y="90" width="210" height="80"></rect>
-            <text x="1005" y="138" text-anchor="middle" class="diagram-title">Alert</text>
-          </g>
-          <g class="entity">
-            <rect x="60" y="350" width="210" height="80"></rect>
-            <text x="165" y="398" text-anchor="middle" class="diagram-title">Service_Provider</text>
-          </g>
-          <g class="entity">
-            <rect x="330" y="350" width="210" height="80"></rect>
-            <text x="435" y="398" text-anchor="middle" class="diagram-title">Service</text>
-          </g>
-          <g class="entity">
-            <rect x="610" y="350" width="210" height="80"></rect>
-            <text x="715" y="398" text-anchor="middle" class="diagram-title">Admin</text>
-          </g>
-          <g class="entity">
-            <rect x="900" y="350" width="210" height="80"></rect>
-            <text x="1005" y="398" text-anchor="middle" class="diagram-title">IoT_Device</text>
-          </g>
+    TOURIST {
+        string tourist_id
+        string name
+        string language
+        float safety_score
+        string contact_info
+    }
 
-          <line x1="270" y1="130" x2="330" y2="130" class="link" marker-end="url(#erArrow)"></line>
-          <text x="282" y="118" class="label">1 to many</text>
+    LOCATION_LOG {
+        string location_id
+        float latitude
+        float longitude
+        datetime timestamp
+    }
 
-          <line x1="540" y1="130" x2="610" y2="130" class="link" marker-end="url(#erArrow)"></line>
-          <text x="556" y="118" class="label">checked in</text>
+    SAFETY_ZONE {
+        string zone_id
+        string zone_type
+        string risk_level
+        string geofence_boundary
+    }
 
-          <line x1="820" y1="130" x2="900" y2="130" class="link" marker-end="url(#erArrow)"></line>
-          <text x="836" y="118" class="label">triggers</text>
+    ALERT {
+        string alert_id
+        string alert_type
+        string status
+        datetime created_at
+    }
 
-          <line x1="270" y1="390" x2="330" y2="390" class="link" marker-end="url(#erArrow)"></line>
-          <text x="281" y="378" class="label">provides many</text>
+    SERVICE_PROVIDER {
+        string provider_id
+        string service_type
+        string verification_status
+        string contact_info
+    }
 
-          <line x1="540" y1="390" x2="610" y2="390" class="link" marker-end="url(#erArrow)"></line>
-          <text x="551" y="378" class="label">verified by</text>
+    ADMIN {
+        string admin_id
+        string role
+        string department
+    }
 
-          <line x1="715" y1="170" x2="715" y2="350" class="link" marker-end="url(#erArrow)"></line>
-          <text x="727" y="270" class="label">managed by</text>
+    IOT_DEVICE {
+        string device_id
+        string device_type
+        string pairing_status
+    }
 
-          <line x1="165" y1="170" x2="165" y2="350" class="link" marker-end="url(#erArrow)"></line>
-          <text x="177" y="270" class="label">may pair</text>
-          <line x1="165" y1="350" x2="900" y2="390" class="link"></line>
-          <text x="520" y="332" class="label">service context</text>
-        </svg>
-        <div class="legend">
-          <p><strong>Primary entities:</strong> Tourist, Location_Log, Safety_Zone, Alert, Service_Provider, Service, Admin, IoT_Device</p>
-          <p><strong>Core relations:</strong> a tourist creates many location logs and alerts, providers publish many services, admins verify services and manage zones, and IoT devices may be paired with tourists.</p>
+    POLICE_RESCUE {
+        string responder_id
+        string unit_name
+        string contact_number
+    }
+        </pre>
+        <div class="er-reference-diagram">
+          <img src="extracted-er.svg" alt="Reference ER diagram for the Smart Tourist Protection System">
+        </div>
+        <div class="er-explanation">
+          <div class="mini-card">
+            <h4>Entity Details</h4>
+            <ul>
+              <li><strong>Tourist</strong> stores the main traveler profile with tourist ID, name, language, safety score, and contact information.</li>
+              <li><strong>Location Log</strong> keeps the live movement records of the tourist through latitude, longitude, timestamp, and location ID.</li>
+              <li><strong>Safety Zone</strong> stores zone boundaries and risk information used for geofencing and area classification.</li>
+              <li><strong>Alert</strong> records warning or emergency events generated by unsafe movement or distress situations.</li>
+              <li><strong>Service Provider</strong> stores tourism-related services such as hotels, transport, and guides along with verification data.</li>
+              <li><strong>Admin</strong> represents the government authority that verifies services and supervises the safety system.</li>
+              <li><strong>IoT Devices</strong> stores wearable or tracking device data paired with tourists in sensitive travel zones.</li>
+              <li><strong>Police Rescue</strong> stores the emergency response unit information used for handling alerts and field support.</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h4>Relationship Working</h4>
+            <ul>
+              <li><strong>Tourist sends Location Log</strong>, showing that one tourist can generate multiple location records during travel.</li>
+              <li><strong>Location Log checked in Safety Zone</strong> means each travel update is evaluated against zone risk information.</li>
+              <li><strong>Safety Zone triggers Alert</strong> when movement enters or approaches a high-risk or restricted area.</li>
+              <li><strong>Tourist pairs IoT Devices</strong> so wearable tracking support can be linked to a specific traveler.</li>
+              <li><strong>Tourist provides Service Provider</strong> shows that tourists interact with listed tourism services available in the system.</li>
+              <li><strong>Admin verifies Service Provider</strong> ensures that only approved local services remain trusted and visible.</li>
+              <li><strong>Police Rescue handles Alert</strong> represents emergency intervention after warning or panic situations are created.</li>
+              <li><strong>Police Rescue updates Safety Zone</strong> reflects field-based safety feedback and operational zone changes.</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h4>What the ER Model Shows</h4>
+            <p>
+              The ER model shows that the system is centered on the tourist and the tourist's movement data. 
+              Live location records are checked against safety zones, risky conditions generate alerts, and those alerts can be handled by police or rescue teams. 
+              At the same time, verified service providers and admin supervision support safer travel decisions across the region.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -2286,7 +2385,18 @@ main {
     <p>Prepared for the Smart Tourist Protection System project based on the North East India government tourism safety brief.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>
+if (window.mermaid) {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    er: {
+      useMaxWidth: true,
+    },
+  });
+}
+
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
 const links = [...document.querySelectorAll(".nav-links a")];
