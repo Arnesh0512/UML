@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Tourist Protection System | North East India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f6efe5;
+  --bg-alt: #fffaf3;
+  --panel: rgba(255, 252, 247, 0.9);
+  --line: #d7c4ab;
+  --ink: #1f2a30;
+  --muted: #5c676c;
+  --accent: #0e7a6d;
+  --accent-strong: #0a5b53;
+  --accent-soft: #d7efe6;
+  --sun: #c87a2b;
+  --shadow: 0 18px 40px rgba(74, 50, 18, 0.12);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(14, 122, 109, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(200, 122, 43, 0.16), transparent 20%),
+    linear-gradient(180deg, #f4eadc 0%, #f8f3ea 45%, #f5efe5 100%);
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 1.25rem 1.25rem 3rem;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 249, 241, 0.76);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  transition: 180ms ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.hero-content {
+  max-width: 960px;
+  margin: 9rem auto 0;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 5vw, 5.6rem);
+}
+
+.hero-text {
+  max-width: 760px;
+  margin: 1.35rem auto 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.button {
+  text-decoration: none;
+  padding: 0.95rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button.ghost {
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+main {
+  padding: 0 1.25rem 4rem;
+}
+
+.section {
+  max-width: 1180px;
+  margin: 0 auto 2rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-heading span {
+  width: 3.1rem;
+  height: 3.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sun), #d9b377);
+  color: white;
+  font-weight: 800;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.prose p,
+.prose li {
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.prose strong {
+  color: var(--ink);
+}
+
+.topic-card {
+  overflow: hidden;
+}
+
+.topic-banner {
+  padding: 1.4rem;
+  border: 1px solid rgba(14, 122, 109, 0.15);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(14, 122, 109, 0.12), rgba(215, 239, 230, 0.65)),
+    rgba(255, 255, 255, 0.58);
+}
+
+.topic-tag {
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-strong);
+}
+
+.topic-banner h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2.3rem);
+}
+
+.topic-summary {
+  margin: 0.8rem 0 0;
+  max-width: 760px;
+}
+
+.problem-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.problem-block {
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.problem-block h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  color: var(--accent-strong);
+}
+
+.accent-block {
+  background:
+    linear-gradient(135deg, rgba(200, 122, 43, 0.12), rgba(255, 249, 241, 0.9)),
+    rgba(255, 255, 255, 0.65);
+  border-color: rgba(200, 122, 43, 0.28);
+}
+
+.sdlc-overview {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.sdlc-callout {
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.sdlc-callout h4,
+.sdlc-conclusion h4 {
+  margin: 0 0 0.8rem;
+  color: var(--accent-strong);
+  font-size: 1.05rem;
+}
+
+.sdlc-callout.emphasis {
+  background:
+    linear-gradient(135deg, rgba(14, 122, 109, 0.1), rgba(255, 255, 255, 0.72)),
+    rgba(255, 255, 255, 0.62);
+}
+
+.spiral-model {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.spiral-visual {
+  position: relative;
+  min-height: 640px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(14, 122, 109, 0.16);
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.86) 0, rgba(255, 255, 255, 0.82) 24%, transparent 24%),
+    radial-gradient(circle at center, rgba(14, 122, 109, 0.08), transparent 58%),
+    linear-gradient(135deg, rgba(215, 239, 230, 0.6), rgba(255, 249, 241, 0.95));
+}
+
+.spiral-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(14, 122, 109, 0.14), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(14, 122, 109, 0.2);
+  box-shadow: 0 18px 35px rgba(14, 122, 109, 0.12);
+}
+
+.spiral-center span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--accent-strong);
+}
+
+.spiral-center strong {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.spiral-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 2px dashed rgba(14, 122, 109, 0.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-one {
+  width: 300px;
+  height: 300px;
+}
+
+.ring-two {
+  width: 430px;
+  height: 430px;
+}
+
+.ring-three {
+  width: 560px;
+  height: 560px;
+}
+
+.spiral-node {
+  position: absolute;
+  width: 210px;
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(14, 122, 109, 0.18);
+  box-shadow: 0 18px 28px rgba(36, 56, 52, 0.09);
+}
+
+.spiral-node h3 {
+  margin: 0.3rem 0 0.45rem;
+  font-size: 1.35rem;
+}
+
+.spiral-node p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.94rem;
+}
+
+.node-number {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.node-planning {
+  left: 6%;
+  top: 14%;
+}
+
+.node-risk {
+  right: 7%;
+  top: 11%;
+}
+
+.node-engineering {
+  right: 5%;
+  bottom: 12%;
+}
+
+.node-evaluation {
+  left: 7%;
+  bottom: 11%;
+}
+
+.spiral-arrow {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(200, 122, 43, 0.16);
+  color: #8b5118;
+  font-weight: 800;
+  border: 1px solid rgba(200, 122, 43, 0.18);
+}
+
+.spiral-arrow-one {
+  left: 34%;
+  top: 12%;
+}
+
+.spiral-arrow-two {
+  right: 16%;
+  top: 43%;
+}
+
+.spiral-arrow-three {
+  right: 37%;
+  bottom: 11%;
+}
+
+.spiral-arrow-four {
+  left: 15%;
+  top: 44%;
+}
+
+.spiral-explanation {
+  display: grid;
+  gap: 1rem;
+}
+
+.spiral-caption,
+.spiral-point {
+  padding: 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--line);
+}
+
+.spiral-caption h4 {
+  margin: 0 0 0.7rem;
+  color: var(--accent-strong);
+  font-size: 1.05rem;
+}
+
+.spiral-caption p,
+.spiral-point p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.spiral-points {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.spiral-point strong {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: #8b5118;
+}
+
+.spiral-support {
+  margin-top: 1.3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.spiral-support-card {
+  padding: 1.2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(14, 122, 109, 0.14);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(250, 245, 236, 0.92));
+}
+
+.spiral-support-card h4 {
+  margin: 0 0 1rem;
+  color: var(--accent-strong);
+  font-size: 1.05rem;
+}
+
+.spiral-phase-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.phase-chip {
+  min-height: 120px;
+  padding: 1rem;
+  border-radius: 22px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  box-shadow: 0 14px 28px rgba(36, 56, 52, 0.1);
+}
+
+.phase-chip span {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.phase-chip strong {
+  font-size: 1rem;
+}
+
+.planning-chip {
+  background: linear-gradient(135deg, #14796c, #299b8e);
+}
+
+.risk-chip {
+  background: linear-gradient(135deg, #d87f34, #e0a14e);
+}
+
+.engineering-chip {
+  background: linear-gradient(135deg, #3a6d8c, #5f8eb0);
+}
+
+.evaluation-chip {
+  background: linear-gradient(135deg, #7a5f96, #9c7cba);
+}
+
+.phase-line {
+  position: relative;
+  height: 4px;
+  min-width: 90px;
+  background: linear-gradient(90deg, rgba(14, 122, 109, 0.22), rgba(200, 122, 43, 0.32));
+  border-radius: 999px;
+  margin: 0 0.2rem;
+}
+
+.phase-line::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid rgba(200, 122, 43, 0.65);
+}
+
+.phase-return {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.phase-return span {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(200, 122, 43, 0.14);
+  color: #8b5118;
+  font-weight: 800;
+  border: 1px dashed rgba(200, 122, 43, 0.32);
+}
+
+.sdlc-conclusion {
+  margin-top: 1.2rem;
+  padding: 1.1rem 1.2rem;
+  border-left: 5px solid var(--accent);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.srs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.srs-panel,
+.requirements-card,
+.meta-card,
+.srs-note,
+.srs-users {
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.srs-panel {
+  padding: 1.15rem;
+}
+
+.srs-panel h4,
+.requirements-card h4,
+.srs-users h4,
+.srs-note h4,
+.class-note h4 {
+  margin: 0 0 0.8rem;
+  color: var(--accent-strong);
+  font-size: 1.05rem;
+}
+
+.intro-panel {
+  background:
+    linear-gradient(135deg, rgba(14, 122, 109, 0.1), rgba(255, 255, 255, 0.76)),
+    rgba(255, 255, 255, 0.62);
+}
+
+.scope-panel {
+  background:
+    linear-gradient(135deg, rgba(200, 122, 43, 0.1), rgba(255, 255, 255, 0.76)),
+    rgba(255, 255, 255, 0.62);
+}
+
+.srs-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+
+.meta-card {
+  padding: 1rem;
+}
+
+.meta-card span {
+  display: block;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--accent-strong);
+}
+
+.meta-card strong {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.requirements-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.requirements-card {
+  padding: 1.15rem;
+}
+
+.functional-card {
+  background:
+    linear-gradient(135deg, rgba(215, 239, 230, 0.45), rgba(255, 255, 255, 0.82));
+}
+
+.nonfunctional-card {
+  background:
+    linear-gradient(135deg, rgba(247, 230, 222, 0.5), rgba(255, 255, 255, 0.82));
+}
+
+.requirements-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.requirements-list li {
+  margin-bottom: 0.7rem;
+}
+
+.srs-users {
+  margin-top: 1.2rem;
+  padding: 1.15rem;
+}
+
+.user-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.user-pill {
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  background: rgba(14, 122, 109, 0.1);
+  color: var(--accent-strong);
+  font-weight: 800;
+  border: 1px solid rgba(14, 122, 109, 0.18);
+}
+
+.srs-note {
+  margin-top: 1.2rem;
+  padding: 1.1rem 1.2rem;
+  border-left: 5px solid var(--sun);
+}
+
+.class-note {
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.class-description-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.class-note {
+  padding: 1.1rem;
+}
+
+.explanation-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.explanation-list li {
+  margin-bottom: 0.72rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.primary-note {
+  background:
+    linear-gradient(135deg, rgba(14, 122, 109, 0.1), rgba(255, 255, 255, 0.8));
+}
+
+.final-note {
+  margin-top: 1rem;
+  border-left: 5px solid var(--accent);
+}
+
+.class-card .diagram {
+  margin-top: 0.2rem;
+}
+
+.class-diagram-svg {
+  color: #21454f;
+  filter: drop-shadow(0 14px 24px rgba(55, 46, 28, 0.08));
+}
+
+.class-diagram-svg .box rect {
+  fill: #f6e8bf;
+  stroke: rgba(110, 81, 30, 0.9);
+  stroke-width: 2.2;
+}
+
+.class-diagram-svg .box line {
+  stroke: rgba(110, 81, 30, 0.72);
+  stroke-width: 1.6;
+}
+
+.class-diagram-svg text {
+  font-size: 15px;
+}
+
+.class-diagram-svg .diagram-title {
+  font-size: 18px;
+  font-weight: 800;
+  fill: #5c3b12;
+}
+
+.class-diagram-svg .label {
+  fill: #8b5118;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.class-diagram-svg .link {
+  stroke: rgba(110, 81, 30, 0.95);
+  stroke-width: 2.4;
+}
+
+.usecase-card .diagram {
+  margin-top: 1rem;
+}
+
+.usecase-diagram-svg {
+  color: #3d463f;
+}
+
+.usecase-diagram-svg .system-boundary {
+  fill: rgba(248, 240, 220, 0.55);
+  stroke: rgba(118, 96, 58, 0.82);
+  stroke-dasharray: 14 8;
+  stroke-width: 2.2;
+}
+
+.usecase-diagram-svg .actor circle,
+.usecase-diagram-svg .actor line {
+  stroke: rgba(70, 72, 68, 0.95);
+  fill: none;
+  stroke-width: 2.2;
+}
+
+.usecase-diagram-svg .usecase ellipse {
+  fill: rgba(246, 232, 191, 0.9);
+  stroke: rgba(112, 85, 36, 0.9);
+  stroke-width: 2;
+}
+
+.usecase-diagram-svg text {
+  fill: #23352f;
+  font-size: 18px;
+}
+
+.usecase-diagram-svg .diagram-title {
+  font-size: 20px;
+  font-weight: 800;
+  fill: #5c3b12;
+}
+
+.usecase-diagram-svg .link {
+  stroke: rgba(92, 59, 18, 0.7);
+  stroke-width: 2;
+  fill: none;
+}
+
+.usecase-description-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+
+.usecase-docs {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.usecase-doc {
+  padding: 1.15rem;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.usecase-doc h4 {
+  margin: 0 0 0.8rem;
+  color: var(--accent-strong);
+  font-size: 1.08rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.diagram-card {
+  overflow-x: auto;
+}
+
+.diagram {
+  width: 100%;
+  min-width: 900px;
+  height: auto;
+  color: #33434a;
+}
+
+.diagram rect,
+.diagram ellipse,
+.diagram circle,
+.diagram line,
+.diagram path {
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: rgba(255, 255, 255, 0.74);
+}
+
+.diagram .box rect,
+.diagram .entity rect,
+.diagram .component,
+.diagram .database,
+.diagram .store,
+.diagram .external,
+.diagram .process,
+.diagram .system-boundary,
+.diagram .node {
+  fill: rgba(255, 255, 255, 0.78);
+}
+
+.diagram .component {
+  fill: rgba(215, 239, 230, 0.75);
+}
+
+.diagram .process {
+  fill: rgba(232, 245, 239, 0.82);
+}
+
+.diagram .store,
+.diagram .database {
+  fill: rgba(249, 237, 214, 0.82);
+}
+
+.diagram .external {
+  fill: rgba(247, 230, 222, 0.82);
+}
+
+.diagram .system-boundary {
+  fill: rgba(255, 255, 255, 0.26);
+  stroke-dasharray: 10 8;
+}
+
+.diagram text {
+  fill: var(--ink);
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+
+.diagram .diagram-title {
+  font-weight: 800;
+}
+
+.diagram .label {
+  font-size: 14px;
+  fill: var(--accent-strong);
+  font-weight: 700;
+}
+
+.diagram .lifeline {
+  stroke-dasharray: 10 8;
+}
+
+.diagram .link {
+  fill: none;
+}
+
+.legend {
+  margin-top: 1rem;
+}
+
+.footer {
+  padding: 2rem 1.25rem 4rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .navbar {
+    border-radius: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    padding-top: 0.6rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .problem-layout,
+  .sdlc-overview,
+  .srs-grid,
+  .srs-meta,
+  .requirements-layout,
+  .class-description-grid,
+  .usecase-description-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spiral-model {
+    grid-template-columns: 1fr;
+  }
+
+  .spiral-phase-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-line,
+  .phase-return {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .spiral-visual {
+    min-height: auto;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .spiral-center,
+  .spiral-ring,
+  .spiral-node,
+  .spiral-arrow {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+  }
+
+  .spiral-center {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+  }
+
+  .spiral-ring,
+  .spiral-arrow {
+    display: none;
+  }
+
+  .spiral-node {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-content {
+    margin-top: 5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="navbar">
+      <a class="brand" href="#top">TouristShield NE</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#problem-statement">Problem Statement</a>
+        <a href="#sdlc">SDLC</a>
+        <a href="#srs">SRS</a>
+        <a href="#class-diagram">Class</a>
+        <a href="#use-case-diagram">Use Case</a>
+        <a href="#er-diagram">ER</a>
+        <a href="#dfd">DFD</a>
+        <a href="#sequence-diagram">Sequence</a>
+        <a href="#interaction-diagram">Interaction</a>
+        <a href="#component-diagram">Component</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">Government-Supported Smart Tourist Protection System</p>
+      <h1>System Design Models for a Safer Tourism Platform in North East India</h1>
+      <p class="hero-text">
+        This website presents the problem statement, SDLC approach, SRS, and core software engineering models
+        for a smart tourist protection platform that combines AI recommendations, safety-zone monitoring,
+        geofencing, alerts, and emergency coordination.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#problem-statement">Start Reading</a>
+        <a class="button ghost" href="#component-diagram">Jump to Architecture</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="problem-statement" class="section">
+      <div class="section-heading">
+        <span>01</span>
+        <h2>Problem Statement</h2>
+      </div>
+      <div class="card prose topic-card problem-card">
+        <div class="topic-banner">
+          <p class="topic-tag">Current Topic</p>
+          <h3>Smart Safety Management for Tourists Traveling in North East India</h3>
+          <p class="topic-summary">
+            This problem statement focuses on the need for a government-backed digital safety platform for tourism in
+            geographically sensitive and low-connectivity regions.
+          </p>
+        </div>
+
+        <div class="problem-layout">
+          <article class="problem-block">
+            <h4>Background</h4>
+            <p>
+              North East India is one of the most attractive tourism regions in the country because of its mountains,
+              forests, waterfalls, wildlife, festivals, tribal culture, and adventure destinations. Every year, tourists
+              travel to the region for eco-tourism, spiritual tourism, cultural tourism, and outdoor experiences.
+              Although the region has strong tourism potential, tourist movement is often affected by harsh terrain,
+              changing climate conditions, remote travel corridors, weak mobile connectivity, and limited access to
+              trusted local support services.
+            </p>
+          </article>
+
+          <article class="problem-block">
+            <h4>Existing Problem</h4>
+            <p>
+              Tourists may unknowingly enter unsafe areas, book unverified local services, lose route clarity in remote
+              places, or face delays during emergencies because available systems are fragmented. A map application may
+              show roads, a booking platform may show hotels, and an SOS tool may share location, but these systems do
+              not work together as one tourism safety mechanism. They also do not give government authorities a live and
+              structured view of tourist safety conditions across sensitive zones.
+            </p>
+          </article>
+
+          <article class="problem-block">
+            <h4>Need for the System</h4>
+            <p>
+              A dedicated system is needed to continuously support tourists before and during travel. The system should
+              recommend verified accommodation, transport, guides, and event places; identify dynamic safety zones;
+              detect risky movement through geofencing; send timely warnings; and allow tourists to trigger instant panic
+              alerts with live location sharing. At the same time, it should help the Department of Tourism, police, and
+              rescue teams monitor incidents and coordinate responses more effectively.
+            </p>
+          </article>
+
+          <article class="problem-block accent-block">
+            <h4>Final Problem Statement</h4>
+            <p>
+              The major problem is that North East India lacks an integrated, government-supported tourist protection
+              platform that can combine live location monitoring, AI-based safe recommendations, geofencing alerts,
+              verified tourism services, and emergency response coordination in one system. As a result, tourists may
+              experience safety risks, lower travel confidence, and delayed support in critical situations. Therefore, a
+              Smart Tourist Protection System is required to improve tourist safety, strengthen administrative visibility,
+              and promote secure and sustainable tourism development in the region.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sdlc" class="section">
+      <div class="section-heading">
+        <span>02</span>
+        <h2>SDLC Model</h2>
+      </div>
+      <div class="card prose topic-card sdlc-card">
+        <div class="topic-banner">
+          <p class="topic-tag">Chosen Development Model</p>
+          <h3>Spiral Model for a Risk-Sensitive Government Safety System</h3>
+          <p class="topic-summary">
+            The project involves emergency workflows, AI-based decisions, live tracking, and public-sector supervision,
+            so the development process must support both iteration and risk control.
+          </p>
+        </div>
+
+        <div class="sdlc-overview">
+          <div class="sdlc-callout">
+            <h4>Why Spiral Model Is Suitable</h4>
+            <p>
+              The Spiral Model is most suitable because this project cannot be built safely in one straight sequence.
+              The system includes changing safety rules, real-time alert mechanisms, admin intervention, geofencing,
+              AI-assisted recommendations, and location privacy concerns. Each iteration of the spiral allows the team
+              to gather feedback, analyze risks, build a controlled version of the system, and improve it in the next
+              cycle. This is especially important for a government-supported platform where accuracy, reliability, and
+              safety are critical.
+            </p>
+          </div>
+          <div class="sdlc-callout emphasis">
+            <h4>Model Selection Justification</h4>
+            <ul>
+              <li>Requirements may evolve after pilot deployment in different states or tourist zones.</li>
+              <li>Emergency and geofencing features require repeated validation before wide release.</li>
+              <li>AI recommendations must be tested and refined under admin supervision.</li>
+              <li>Connectivity challenges and field conditions create technical and operational risks.</li>
+              <li>The system benefits from phased release rather than one-time delivery.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="spiral-model">
+          <div class="spiral-visual">
+            <div class="spiral-center">
+              <span>Spiral</span>
+              <strong>Risk-Driven Development</strong>
+            </div>
+
+            <div class="spiral-ring ring-one"></div>
+            <div class="spiral-ring ring-two"></div>
+            <div class="spiral-ring ring-three"></div>
+
+            <article class="spiral-node node-planning">
+              <span class="node-number">1</span>
+              <h3>Planning</h3>
+              <p>Define goals, users, scope, and release targets.</p>
+            </article>
+
+            <article class="spiral-node node-risk">
+              <span class="node-number">2</span>
+              <h3>Risk Analysis</h3>
+              <p>Study privacy, alert reliability, connectivity, and zone accuracy risks.</p>
+            </article>
+
+            <article class="spiral-node node-engineering">
+              <span class="node-number">3</span>
+              <h3>Engineering</h3>
+              <p>Develop app, portal, backend, AI, maps, and geofencing modules.</p>
+            </article>
+
+            <article class="spiral-node node-evaluation">
+              <span class="node-number">4</span>
+              <h3>Evaluation</h3>
+              <p>Test with stakeholders, review outcomes, and begin the next cycle.</p>
+            </article>
+
+            <div class="spiral-arrow spiral-arrow-one">1</div>
+            <div class="spiral-arrow spiral-arrow-two">2</div>
+            <div class="spiral-arrow spiral-arrow-three">3</div>
+            <div class="spiral-arrow spiral-arrow-four">4</div>
+          </div>
+
+          <div class="spiral-explanation">
+            <div class="spiral-caption">
+              <h4>How the Spiral Works in This Project</h4>
+              <p>
+                Each loop of the spiral represents one improved version of the tourism safety system. The team first
+                plans the iteration, then studies technical and operational risks, develops the selected features, and
+                finally evaluates the release with stakeholders. After evaluation, the next loop begins with better
+                knowledge and reduced uncertainty.
+              </p>
+            </div>
+
+            <div class="spiral-points">
+              <div class="spiral-point">
+                <strong>Iteration 1</strong>
+                <p>Basic maps, registration, verified services, and panic alert foundation.</p>
+              </div>
+              <div class="spiral-point">
+                <strong>Iteration 2</strong>
+                <p>Geofencing, safety zones, responder visibility, and notification improvements.</p>
+              </div>
+              <div class="spiral-point">
+                <strong>Iteration 3</strong>
+                <p>AI recommendations, safety score, multilingual support, and better field performance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spiral-support">
+          <div class="spiral-support-card">
+            <h4>Phase Flow Diagram</h4>
+            <div class="spiral-phase-flow">
+              <div class="phase-chip planning-chip">
+                <span>01</span>
+                <strong>Planning</strong>
+              </div>
+              <div class="phase-line"></div>
+              <div class="phase-chip risk-chip">
+                <span>02</span>
+                <strong>Risk Analysis</strong>
+              </div>
+              <div class="phase-line"></div>
+              <div class="phase-chip engineering-chip">
+                <span>03</span>
+                <strong>Engineering</strong>
+              </div>
+              <div class="phase-line"></div>
+              <div class="phase-chip evaluation-chip">
+                <span>04</span>
+                <strong>Evaluation</strong>
+              </div>
+              <div class="phase-return">
+                <span>Repeat for next cycle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sdlc-conclusion">
+          <h4>Conclusion</h4>
+          <p>
+            Therefore, the Spiral SDLC Model is the best choice for this system because it supports continuous
+            improvement, risk management, stakeholder review, and gradual deployment of safety-critical features.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="srs" class="section">
+      <div class="section-heading">
+        <span>03</span>
+        <h2>SRS</h2>
+      </div>
+      <div class="card prose topic-card srs-card">
+        <div class="topic-banner">
+          <p class="topic-tag">Formal Documentation Section</p>
+          <h3>Software Requirements Specification</h3>
+          <p class="topic-summary">
+            This section defines the software requirements of the Smart Tourist Protection System in a structured form,
+            including purpose, scope, users, functional requirements, and non-functional requirements.
+          </p>
+        </div>
+
+        <div class="srs-grid">
+          <article class="srs-panel intro-panel">
+            <h4>1. Purpose</h4>
+            <p>
+              The purpose of this system is to provide a government-supported digital safety platform for tourists
+              traveling in North East India. The software helps users discover verified travel services, receive risk
+              alerts, share live location during emergencies, and obtain safer travel guidance through intelligent
+              recommendations and administrative monitoring.
+            </p>
+          </article>
+
+          <article class="srs-panel scope-panel">
+            <h4>2. Scope</h4>
+            <p>
+              The system consists of an Android application for tourists and a web-based portal for the Department of
+              Tourism and authorized officials. It supports maps, safety zones, emergency alerts, service verification,
+              AI-assisted recommendations, multilingual access, and optional IoT integration for high-risk zones.
+            </p>
+          </article>
+        </div>
+
+        <div class="srs-meta">
+          <div class="meta-card">
+            <span>Product Name</span>
+            <strong>Government-Supported Smart Tourist Protection System for North East India</strong>
+          </div>
+          <div class="meta-card">
+            <span>Primary Users</span>
+            <strong>Tourists, Admins, Service Providers, Police, Rescue Teams</strong>
+          </div>
+          <div class="meta-card">
+            <span>Deployment</span>
+            <strong>Android App, Web Portal, Cloud Backend</strong>
+          </div>
+        </div>
+
+        <div class="requirements-layout">
+          <div class="requirements-card functional-card">
+            <h4>3. Functional Requirements</h4>
+            <ul class="requirements-list">
+              <li><strong>FR1:</strong> Tourists shall be able to register, log in, and manage profile information.</li>
+              <li><strong>FR2:</strong> The application shall display live tourist location on a map.</li>
+              <li><strong>FR3:</strong> The system shall show red, orange, and yellow safety zones.</li>
+              <li><strong>FR4:</strong> The system shall provide AI-assisted recommendations for attractions, events, hotels, transport, and guides.</li>
+              <li><strong>FR5:</strong> Admins shall review and supervise recommendation outputs and service verification.</li>
+              <li><strong>FR6:</strong> Geofencing shall detect tourist entry into restricted or high-risk zones.</li>
+              <li><strong>FR7:</strong> The application shall send alerts to tourists and authorities when risk conditions occur.</li>
+              <li><strong>FR8:</strong> A panic button shall send distress alerts with live location.</li>
+              <li><strong>FR9:</strong> Optional live tracking shall be available for family members and law enforcement.</li>
+              <li><strong>FR10:</strong> The system shall calculate a tourist safety score using movement pattern and area sensitivity.</li>
+              <li><strong>FR11:</strong> Local providers shall be able to submit hotels, homestays, transport, guides, and events for approval.</li>
+              <li><strong>FR12:</strong> Optional IoT bands or tags shall be supported for high-risk travel zones.</li>
+            </ul>
+          </div>
+
+          <div class="requirements-card nonfunctional-card">
+            <h4>4. Non-Functional Requirements</h4>
+            <ul class="requirements-list">
+              <li><strong>NFR1:</strong> The system should process alerts with near real-time response.</li>
+              <li><strong>NFR2:</strong> The platform should support many concurrent users during festivals and peak seasons.</li>
+              <li><strong>NFR3:</strong> The mobile app should remain usable under unstable or low-bandwidth connectivity.</li>
+              <li><strong>NFR4:</strong> The system should use lightweight communication for maps, tracking, and alerts.</li>
+              <li><strong>NFR5:</strong> Sensitive user and location data should be protected through secure access control and encryption.</li>
+              <li><strong>NFR6:</strong> The platform should provide audit logs for administrative and emergency operations.</li>
+              <li><strong>NFR7:</strong> The portal should be scalable, reliable, and available for continuous monitoring.</li>
+              <li><strong>NFR8:</strong> The application should support multilingual access for broader usability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="srs-users">
+          <h4>5. Major User Classes</h4>
+          <div class="user-pill-row">
+            <span class="user-pill">Tourists</span>
+            <span class="user-pill">Tourism Department</span>
+            <span class="user-pill">Authorized Admins</span>
+            <span class="user-pill">Service Providers</span>
+            <span class="user-pill">Police / Rescue Teams</span>
+            <span class="user-pill">Maintainers</span>
+          </div>
+        </div>
+
+        <div class="srs-note">
+          <h4>6. Summary</h4>
+          <p>
+            The SRS shows that the system is not only a tourism information application but a safety-oriented digital
+            platform that combines verified services, government supervision, AI support, emergency response, and risk
+            monitoring in a single integrated solution.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="class-diagram" class="section">
+      <div class="section-heading">
+        <span>04</span>
+        <h2>Class Diagram</h2>
+      </div>
+      <div class="card diagram-card class-card">
+          <svg viewBox="0 0 1180 860" class="diagram class-diagram-svg">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+            </marker>
+          </defs>
+
+          <g class="box">
+            <rect x="40" y="40" width="220" height="220" rx="18"></rect>
+            <text x="150" y="74" text-anchor="middle" class="diagram-title">Tourist</text>
+            <line x1="40" y1="92" x2="260" y2="92"></line>
+            <text x="55" y="122">+ touristId</text>
+            <text x="55" y="147">+ name</text>
+            <text x="55" y="172">- language</text>
+            <text x="55" y="197">- safetyScore</text>
+            <line x1="40" y1="220" x2="260" y2="220"></line>
+            <text x="55" y="247">+ triggerPanic()</text>
+          </g>
+
+          <g class="box">
+            <rect x="330" y="40" width="230" height="220" rx="18"></rect>
+            <text x="445" y="74" text-anchor="middle" class="diagram-title">LocationUpdate</text>
+            <line x1="330" y1="92" x2="560" y2="92"></line>
+            <text x="345" y="122">+ locationId</text>
+            <text x="345" y="147">+ latitude</text>
+            <text x="345" y="172">- longitude</text>
+            <text x="345" y="197">- timestamp</text>
+            <line x1="330" y1="220" x2="560" y2="220"></line>
+            <text x="345" y="247">+ sendToServer()</text>
+          </g>
+
+          <g class="box">
+            <rect x="640" y="40" width="240" height="220" rx="18"></rect>
+            <text x="760" y="74" text-anchor="middle" class="diagram-title">SafetyZone</text>
+            <line x1="640" y1="92" x2="880" y2="92"></line>
+            <text x="655" y="122">+ zoneId</text>
+            <text x="655" y="147">- zoneType</text>
+            <text x="655" y="172">+ riskLevel</text>
+            <text x="655" y="197">- geofenceBoundary</text>
+            <line x1="640" y1="220" x2="880" y2="220"></line>
+            <text x="655" y="247">+ evaluateRisk()</text>
+          </g>
+
+          <g class="box">
+            <rect x="930" y="40" width="210" height="220" rx="18"></rect>
+            <text x="1035" y="74" text-anchor="middle" class="diagram-title">Alert</text>
+            <line x1="930" y1="92" x2="1140" y2="92"></line>
+            <text x="945" y="122">+ alertId</text>
+            <text x="945" y="147">- alertType</text>
+            <text x="945" y="172">+ status</text>
+            <text x="945" y="197">- createdAt</text>
+            <line x1="930" y1="220" x2="1140" y2="220"></line>
+            <text x="945" y="247">+ dispatch()</text>
+          </g>
+
+          <g class="box">
+            <rect x="70" y="380" width="240" height="230" rx="18"></rect>
+            <text x="190" y="416" text-anchor="middle" class="diagram-title">ServiceProvider</text>
+            <line x1="70" y1="434" x2="310" y2="434"></line>
+            <text x="85" y="466">+ providerId</text>
+            <text x="85" y="491">- serviceType</text>
+            <text x="85" y="516">+ verificationStatus</text>
+            <text x="85" y="541">- contactInfo</text>
+            <line x1="70" y1="560" x2="310" y2="560"></line>
+            <text x="85" y="588">+ submitService()</text>
+          </g>
+
+          <g class="box">
+            <rect x="360" y="380" width="250" height="230" rx="18"></rect>
+            <text x="485" y="416" text-anchor="middle" class="diagram-title">RecommendationEngine</text>
+            <line x1="360" y1="434" x2="610" y2="434"></line>
+            <text x="375" y="466">+ modelVersion</text>
+            <text x="375" y="491">- ruleSet</text>
+            <text x="375" y="516">+ confidenceScore</text>
+            <line x1="360" y1="534" x2="610" y2="534"></line>
+            <text x="375" y="562">+ rankServices()</text>
+            <text x="375" y="587">+ suggestZones()</text>
+          </g>
+
+          <g class="box">
+            <rect x="665" y="380" width="230" height="230" rx="18"></rect>
+            <text x="780" y="416" text-anchor="middle" class="diagram-title">Admin</text>
+            <line x1="665" y1="434" x2="895" y2="434"></line>
+            <text x="680" y="466">+ adminId</text>
+            <text x="680" y="491">- role</text>
+            <text x="680" y="516">+ department</text>
+            <line x1="665" y1="534" x2="895" y2="534"></line>
+            <text x="680" y="562">+ approveService()</text>
+            <text x="680" y="587">+ updateZone()</text>
+          </g>
+
+          <g class="box">
+            <rect x="955" y="380" width="190" height="230" rx="18"></rect>
+            <text x="1050" y="416" text-anchor="middle" class="diagram-title">IoTDevice</text>
+            <line x1="955" y1="434" x2="1145" y2="434"></line>
+            <text x="970" y="466">+ deviceId</text>
+            <text x="970" y="491">- deviceType</text>
+            <text x="970" y="516">+ pairingStatus</text>
+            <line x1="955" y1="534" x2="1145" y2="534"></line>
+            <text x="970" y="562">+ syncSignal()</text>
+          </g>
+
+            <line x1="260" y1="150" x2="330" y2="150" marker-end="url(#arrow)" class="link"></line>
+            <text x="278" y="132" class="label">1..*</text>
+
+            <line x1="445" y1="40" x2="445" y2="18" class="link"></line>
+            <line x1="445" y1="18" x2="675" y2="18" class="link"></line>
+            <line x1="675" y1="18" x2="675" y2="40" marker-end="url(#arrow)" class="link"></line>
+            <text x="515" y="12" class="label">checked against</text>
+
+            <line x1="760" y1="40" x2="760" y2="18" class="link"></line>
+            <line x1="760" y1="18" x2="980" y2="18" class="link"></line>
+            <line x1="980" y1="18" x2="980" y2="40" marker-end="url(#arrow)" class="link"></line>
+            <text x="855" y="12" class="label">creates</text>
+
+            <line x1="190" y1="260" x2="190" y2="380" marker-end="url(#arrow)" class="link"></line>
+            <text x="205" y="330" class="label">uses</text>
+
+            <line x1="52" y1="260" x2="52" y2="720" class="link"></line>
+            <line x1="52" y1="720" x2="450" y2="720" class="link"></line>
+            <line x1="450" y1="720" x2="450" y2="610" marker-end="url(#arrow)" class="link"></line>
+            <text x="248" y="712" class="label">requests</text>
+
+            <line x1="560" y1="380" x2="560" y2="350" class="link"></line>
+            <line x1="560" y1="350" x2="745" y2="350" class="link"></line>
+            <line x1="745" y1="350" x2="745" y2="380" marker-end="url(#arrow)" class="link"></line>
+            <text x="620" y="342" class="label">reviewed by</text>
+
+            <line x1="310" y1="540" x2="340" y2="540" class="link"></line>
+            <line x1="340" y1="540" x2="340" y2="700" class="link"></line>
+            <line x1="340" y1="700" x2="780" y2="700" class="link"></line>
+            <line x1="780" y1="700" x2="780" y2="610" marker-end="url(#arrow)" class="link"></line>
+            <text x="505" y="692" class="label">verified by</text>
+
+            <line x1="1145" y1="500" x2="1165" y2="500" class="link"></line>
+            <line x1="1165" y1="500" x2="1165" y2="320" class="link"></line>
+            <line x1="1165" y1="320" x2="1040" y2="320" class="link"></line>
+            <line x1="1040" y1="320" x2="1040" y2="260" marker-end="url(#arrow)" class="link"></line>
+            <text x="1072" y="308" class="label">distress event</text>
+
+            <line x1="780" y1="380" x2="780" y2="260" marker-end="url(#arrow)" class="link"></line>
+            <text x="794" y="332" class="label">manages</text>
+          </svg>
+
+        <div class="class-description-grid">
+          <article class="class-note primary-note">
+            <h4>1. Class, Attribute, and Method Explanation</h4>
+            <ul class="explanation-list">
+              <li><strong>Tourist:</strong> This class stores the tourist's identity and safety information. `touristId` identifies the tourist, `name` stores the tourist name, `language` stores the selected language, and `safetyScore` stores the calculated safety level. The method `triggerPanic()` is used to activate an emergency alert.</li>
+              <li><strong>LocationUpdate:</strong> This class stores movement data sent from the tourist's device. `locationId` identifies each location record, `latitude` and `longitude` store the coordinates, and `timestamp` stores the time of update. The method `sendToServer()` sends this data to the backend.</li>
+              <li><strong>SafetyZone:</strong> This class stores zone-based safety information. `zoneId` identifies the zone, `zoneType` stores the zone category, `riskLevel` stores the danger level, and `geofenceBoundary` stores the area boundary. The method `evaluateRisk()` checks whether the tourist is in a risky zone.</li>
+              <li><strong>Alert:</strong> This class stores warning or emergency information. `alertId` identifies the alert, `alertType` stores the type of alert, `status` stores its current state, and `createdAt` stores the time of generation. The method `dispatch()` sends the alert forward.</li>
+              <li><strong>ServiceProvider:</strong> This class stores local tourism service details. `providerId` identifies the provider, `serviceType` stores the category of service, `verificationStatus` stores approval state, and `contactInfo` stores communication details. The method `submitService()` is used to register or send service information.</li>
+              <li><strong>RecommendationEngine:</strong> This class handles recommendation logic. `modelVersion` stores the algorithm version, `ruleSet` stores recommendation rules, and `confidenceScore` stores ranking confidence. The methods `rankServices()` and `suggestZones()` support safer recommendations.</li>
+              <li><strong>Admin:</strong> This class represents the supervisory authority. `adminId` identifies the admin user, `role` stores the authority level, and `department` stores the administrative unit. The methods `approveService()` and `updateZone()` control service approval and safety-zone management.</li>
+              <li><strong>IoTDevice:</strong> This class represents a smart band or tracking tag. `deviceId` identifies the device, `deviceType` stores its type, and `pairingStatus` stores whether it is connected to a tourist. The method `syncSignal()` sends device-related safety data.</li>
+            </ul>
+          </article>
+
+          <article class="class-note">
+            <h4>2. Interworking of Classes</h4>
+            <ul class="explanation-list">
+              <li>The <strong>Tourist</strong> class sends travel data through <strong>LocationUpdate</strong>.</li>
+              <li><strong>LocationUpdate</strong> is checked against <strong>SafetyZone</strong> to detect travel risk.</li>
+              <li>If a risky condition is found, the system creates an <strong>Alert</strong>.</li>
+              <li>The <strong>Tourist</strong> may use services registered under <strong>ServiceProvider</strong>.</li>
+              <li><strong>RecommendationEngine</strong> helps the tourist by ranking safer and more suitable service options.</li>
+              <li><strong>Admin</strong> reviews recommendations, verifies services, and manages safety zones.</li>
+              <li><strong>IoTDevice</strong> can also send distress-related signals that support alert generation.</li>
+              <li>Together, all classes cooperate to form a smart tourist safety and emergency response system.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="class-note final-note">
+          <h4>3. Overall Working of the Model</h4>
+          <ul class="explanation-list">
+            <li>The model is centered around the tourist and the tourist's movement.</li>
+            <li>The system constantly receives live travel information and compares it with predefined safety zones.</li>
+            <li>When danger is detected, the system generates alerts for warning and emergency response.</li>
+            <li>Alongside protection, the system also supports safer tourism choices through verified services and recommendations.</li>
+            <li>Administrative monitoring and IoT support strengthen the complete safety framework.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-case-diagram" class="section">
+      <div class="section-heading">
+        <span>05</span>
+        <h2>Use Case Diagram</h2>
+      </div>
+      <div class="card diagram-card topic-card usecase-card">
+        <div class="topic-banner">
+          <p class="topic-tag">UML Behavioral Model</p>
+          <h3>Use Case Diagram Based on Tourist Safety System Functions</h3>
+          <p class="topic-summary">
+            This use case diagram shows how the main external actors interact with the Smart Tourist Protection System
+            through the key services suggested by the class diagram and overall project requirements.
+          </p>
+        </div>
+
+          <svg viewBox="0 0 1180 980" class="diagram usecase-diagram-svg">
+            <rect x="215" y="40" width="750" height="860" rx="28" class="system-boundary"></rect>
+            <text x="590" y="92" text-anchor="middle" class="diagram-title">Smart Tourist Protection System</text>
+
+          <g class="actor">
+            <circle cx="105" cy="165" r="24"></circle>
+            <line x1="105" y1="189" x2="105" y2="250"></line>
+            <line x1="75" y1="210" x2="135" y2="210"></line>
+            <line x1="105" y1="250" x2="75" y2="295"></line>
+            <line x1="105" y1="250" x2="135" y2="295"></line>
+            <text x="105" y="328" text-anchor="middle">Tourist</text>
+          </g>
+
+          <g class="actor">
+            <circle cx="1075" cy="165" r="24"></circle>
+            <line x1="1075" y1="189" x2="1075" y2="250"></line>
+            <line x1="1045" y1="210" x2="1105" y2="210"></line>
+            <line x1="1075" y1="250" x2="1045" y2="295"></line>
+            <line x1="1075" y1="250" x2="1105" y2="295"></line>
+            <text x="1075" y="328" text-anchor="middle">Admin</text>
+          </g>
+
+          <g class="actor">
+            <circle cx="105" cy="570" r="24"></circle>
+            <line x1="105" y1="594" x2="105" y2="655"></line>
+            <line x1="75" y1="615" x2="135" y2="615"></line>
+            <line x1="105" y1="655" x2="75" y2="700"></line>
+            <line x1="105" y1="655" x2="135" y2="700"></line>
+            <text x="105" y="734" text-anchor="middle">Service Provider</text>
+          </g>
+
+            <g class="actor">
+              <circle cx="1075" cy="570" r="24"></circle>
+            <line x1="1075" y1="594" x2="1075" y2="655"></line>
+            <line x1="1045" y1="615" x2="1105" y2="615"></line>
+            <line x1="1075" y1="655" x2="1045" y2="700"></line>
+            <line x1="1075" y1="655" x2="1105" y2="700"></line>
+              <text x="1075" y="734" text-anchor="middle">Police / Rescue</text>
+            </g>
+
+            <g class="usecase">
+              <ellipse cx="380" cy="140" rx="120" ry="32"></ellipse>
+              <text x="380" y="145" text-anchor="middle">Register</text>
+
+              <ellipse cx="770" cy="140" rx="120" ry="32"></ellipse>
+              <text x="770" y="145" text-anchor="middle">Login</text>
+
+              <ellipse cx="380" cy="225" rx="140" ry="32"></ellipse>
+              <text x="380" y="230" text-anchor="middle">Track Location</text>
+
+              <ellipse cx="770" cy="225" rx="140" ry="32"></ellipse>
+              <text x="770" y="230" text-anchor="middle">View Safety Zones</text>
+
+              <ellipse cx="380" cy="310" rx="150" ry="32"></ellipse>
+              <text x="380" y="315" text-anchor="middle">Receive Warnings</text>
+
+              <ellipse cx="770" cy="310" rx="160" ry="32"></ellipse>
+              <text x="770" y="315" text-anchor="middle">Get Recommendations</text>
+
+              <ellipse cx="380" cy="395" rx="145" ry="32"></ellipse>
+              <text x="380" y="400" text-anchor="middle">View Services</text>
+
+              <ellipse cx="770" cy="395" rx="140" ry="32"></ellipse>
+              <text x="770" y="400" text-anchor="middle">Book Guide</text>
+
+              <ellipse cx="380" cy="480" rx="155" ry="32"></ellipse>
+              <text x="380" y="485" text-anchor="middle">Share Live Location</text>
+
+              <ellipse cx="770" cy="480" rx="135" ry="32"></ellipse>
+              <text x="770" y="485" text-anchor="middle">Trigger Panic</text>
+
+              <ellipse cx="380" cy="595" rx="150" ry="32"></ellipse>
+              <text x="380" y="600" text-anchor="middle">Submit Services</text>
+
+              <ellipse cx="770" cy="565" rx="145" ry="32"></ellipse>
+              <text x="770" y="570" text-anchor="middle">Verify Services</text>
+
+              <ellipse cx="770" cy="645" rx="165" ry="32"></ellipse>
+              <text x="770" y="650" text-anchor="middle">Review AI Output</text>
+
+              <ellipse cx="380" cy="690" rx="150" ry="32"></ellipse>
+              <text x="380" y="695" text-anchor="middle">Update Services</text>
+
+              <ellipse cx="770" cy="725" rx="170" ry="32"></ellipse>
+              <text x="770" y="730" text-anchor="middle">Manage Zones & Alerts</text>
+
+              <ellipse cx="770" cy="805" rx="160" ry="32"></ellipse>
+              <text x="770" y="810" text-anchor="middle">Handle Emergency</text>
+            </g>
+
+            <line x1="130" y1="235" x2="260" y2="140" class="link"></line>
+            <line x1="130" y1="235" x2="650" y2="140" class="link"></line>
+            <line x1="130" y1="235" x2="240" y2="225" class="link"></line>
+            <line x1="130" y1="235" x2="630" y2="225" class="link"></line>
+            <line x1="130" y1="235" x2="230" y2="310" class="link"></line>
+            <line x1="130" y1="235" x2="610" y2="310" class="link"></line>
+            <line x1="130" y1="234" x2="235" y2="395" class="link"></line>
+            <line x1="130" y1="235" x2="630" y2="395" class="link"></line>
+            <line x1="130" y1="235" x2="225" y2="480" class="link"></line>
+            <line x1="130" y1="235" x2="635" y2="480" class="link"></line>
+
+            <line x1="1050" y1="225" x2="915" y2="565" class="link"></line>
+            <line x1="1050" y1="225" x2="935" y2="645" class="link"></line>
+            <line x1="1050" y1="225" x2="940" y2="725" class="link"></line>
+            <line x1="1050" y1="225" x2="900" y2="140" class="link"></line>
+            <line x1="1050" y1="225" x2="910" y2="225" class="link"></line>
+            <line x1="1050" y1="225" x2="930" y2="310" class="link"></line>
+
+            <line x1="130" y1="600" x2="230" y2="595" class="link"></line>
+            <line x1="130" y1="600" x2="230" y2="690" class="link"></line>
+            <line x1="130" y1="600" x2="630" y2="395" class="link"></line>
+            <line x1="130" y1="600" x2="620" y2="310" class="link"></line>
+
+            <line x1="1050" y1="600" x2="910" y2="480" class="link"></line>
+            <line x1="1050" y1="600" x2="930" y2="805" class="link"></line>
+            <line x1="1050" y1="600" x2="930" y2="725" class="link"></line>
+            <line x1="1050" y1="600" x2="905" y2="565" class="link"></line>
+          </svg>
+
+        <div class="usecase-description-grid">
+          <article class="class-note primary-note">
+            <h4>1. Main Actors and Their Use Cases</h4>
+            <ul class="explanation-list">
+              <li><strong>Tourist:</strong> The tourist can register, share live location, view verified services, receive zone warnings, get safe recommendations, and trigger panic alerts.</li>
+              <li><strong>Admin:</strong> The admin verifies services, reviews recommendation outputs, and manages safety zones and alerts.</li>
+              <li><strong>Service Provider:</strong> The service provider submits hotels, guides, transport, events, or homestay information into the system.</li>
+              <li><strong>Police / Rescue:</strong> Emergency responders interact with the panic alert and alert-management process during risky situations.</li>
+            </ul>
+          </article>
+
+          <article class="class-note">
+            <h4>2. Relation with the Class Diagram</h4>
+            <ul class="explanation-list">
+              <li>The tourist use cases relate to the <strong>Tourist</strong> and <strong>LocationUpdate</strong> classes.</li>
+              <li>Zone warning and panic handling relate to <strong>SafetyZone</strong> and <strong>Alert</strong>.</li>
+              <li>Service submission and verification relate to <strong>ServiceProvider</strong> and <strong>Admin</strong>.</li>
+              <li>Safe recommendation functions relate to <strong>RecommendationEngine</strong>.</li>
+              <li>Emergency-support interaction is also consistent with the <strong>IoTDevice</strong> and alert flow shown in the class diagram.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="usecase-docs">
+          <article class="usecase-doc">
+            <h4>Use Case 1. Login</h4>
+            <ul class="explanation-list">
+              <li><strong>1.1 Introduction:</strong> This use case describes how an authorized user logs into the Smart Tourist Protection System.</li>
+              <li><strong>1.2 Actors:</strong> Tourist, Admin, Service Provider, Police/Rescue.</li>
+              <li><strong>1.3 Pre-Conditions:</strong> None.</li>
+              <li><strong>1.4 Post-Conditions:</strong> If successful, the actor is logged into the system. Otherwise, the system state remains unchanged.</li>
+              <li><strong>1.5 Basic Flow:</strong> The system asks the actor to enter user ID and password. The actor enters the credentials. The system validates them and grants access if they are correct.</li>
+              <li><strong>1.6 Alternate Flow:</strong> If invalid credentials are entered, the system displays an error message and asks the actor to retry or cancel.</li>
+              <li><strong>1.7 Special Requirements:</strong> Secure password handling and role-based access control.</li>
+              <li><strong>1.8 Use Case Relationships:</strong> This use case is a precondition for admin, provider, and responder-specific operations.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 2. Track Location</h4>
+            <ul class="explanation-list">
+              <li><strong>2.1 Introduction:</strong> This use case allows the system to receive and process live tourist location data.</li>
+              <li><strong>2.2 Actors:</strong> Tourist.</li>
+              <li><strong>2.3 Pre-Conditions:</strong> Tourist must be logged in and location permission must be enabled.</li>
+              <li><strong>2.4 Post-Conditions:</strong> Tourist location is stored or updated in the system for monitoring and safety evaluation.</li>
+              <li><strong>2.5 Basic Flow:</strong> The tourist opens the app and allows location access. The app captures coordinates and sends them to the backend. The system stores the update and checks it against active safety zones.</li>
+              <li><strong>2.6 Alternate Flow:</strong> If location permission is denied or the network is unavailable, the system stores pending data locally or asks the tourist to enable location services.</li>
+              <li><strong>2.7 Special Requirements:</strong> Low-data communication and support for unstable connectivity.</li>
+              <li><strong>2.8 Use Case Relationships:</strong> Supports Receive Warnings, Trigger Panic, and Manage Zones & Alerts.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 3. Receive Warnings</h4>
+            <ul class="explanation-list">
+              <li><strong>3.1 Introduction:</strong> This use case allows the tourist to receive warnings when approaching or entering unsafe zones.</li>
+              <li><strong>3.2 Actors:</strong> Tourist.</li>
+              <li><strong>3.3 Pre-Conditions:</strong> Tourist location must be available and safety-zone data must exist in the system.</li>
+              <li><strong>3.4 Post-Conditions:</strong> A warning is shown to the tourist and the event may be logged for monitoring.</li>
+              <li><strong>3.5 Basic Flow:</strong> The system compares live tourist coordinates with zone boundaries. If the tourist reaches a warning or danger zone, the system generates a safety alert and sends a notification.</li>
+              <li><strong>3.6 Alternate Flow:</strong> If no danger zone is detected, no warning is sent and monitoring continues.</li>
+              <li><strong>3.7 Special Requirements:</strong> Near real-time notification delivery.</li>
+              <li><strong>3.8 Use Case Relationships:</strong> Depends on Track Location and Safety Zone Management.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 4. Trigger Panic</h4>
+            <ul class="explanation-list">
+              <li><strong>4.1 Introduction:</strong> This use case allows the tourist to send an emergency alert with live location.</li>
+              <li><strong>4.2 Actors:</strong> Tourist, Police/Rescue, Admin.</li>
+              <li><strong>4.3 Pre-Conditions:</strong> Tourist must be logged in and panic service must be available.</li>
+              <li><strong>4.4 Post-Conditions:</strong> A panic alert is created and sent to the relevant authority and optionally family members.</li>
+              <li><strong>4.5 Basic Flow:</strong> The tourist taps the panic button. The app sends the current location and user details to the server. The system creates a panic alert and notifies emergency responders and the admin dashboard.</li>
+              <li><strong>4.6 Alternate Flow:</strong> If the network is weak, the system retries transmission or falls back to the available emergency channel.</li>
+              <li><strong>4.7 Special Requirements:</strong> Fast response and high reliability.</li>
+              <li><strong>4.8 Use Case Relationships:</strong> Uses Track Location and Handle Emergency.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 5. Submit Services</h4>
+            <ul class="explanation-list">
+              <li><strong>5.1 Introduction:</strong> This use case allows a service provider to submit tourism-related service details.</li>
+              <li><strong>5.2 Actors:</strong> Service Provider.</li>
+              <li><strong>5.3 Pre-Conditions:</strong> Service provider must be logged in.</li>
+              <li><strong>5.4 Post-Conditions:</strong> Service information is stored in pending or submitted state for review.</li>
+              <li><strong>5.5 Basic Flow:</strong> The service provider selects the service submission option, enters service details such as category, contact information, and availability, and submits the form. The system stores the record and marks it for verification.</li>
+              <li><strong>5.6 Alternate Flow:</strong> If required data is missing, the system displays an error and asks the provider to correct the form.</li>
+              <li><strong>5.7 Special Requirements:</strong> Validation of mandatory fields and duplicate checks.</li>
+              <li><strong>5.8 Use Case Relationships:</strong> Followed by Verify Services.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 6. Verify Services</h4>
+            <ul class="explanation-list">
+              <li><strong>6.1 Introduction:</strong> This use case allows the admin to verify, approve, or reject submitted tourism service listings.</li>
+              <li><strong>6.2 Actors:</strong> Admin.</li>
+              <li><strong>6.3 Pre-Conditions:</strong> Admin must be logged in and submitted service records must exist.</li>
+              <li><strong>6.4 Post-Conditions:</strong> The service is approved, rejected, or updated in the system.</li>
+              <li><strong>6.5 Basic Flow:</strong> The admin opens pending service records, reviews the details, checks authenticity, and selects approve or reject. The system updates the verification status.</li>
+              <li><strong>6.6 Alternate Flow:</strong> If the record is incomplete or suspicious, the admin may keep it pending or reject it.</li>
+              <li><strong>6.7 Special Requirements:</strong> Audit trail for verification actions.</li>
+              <li><strong>6.8 Use Case Relationships:</strong> Related to Submit Services and View Services.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 7. Manage Zones & Alerts</h4>
+            <ul class="explanation-list">
+              <li><strong>7.1 Introduction:</strong> This use case allows the admin to manage safety zones and review alert conditions.</li>
+              <li><strong>7.2 Actors:</strong> Admin.</li>
+              <li><strong>7.3 Pre-Conditions:</strong> Admin must be logged in.</li>
+              <li><strong>7.4 Post-Conditions:</strong> Safety zones and alert statuses are updated in the system.</li>
+              <li><strong>7.5 Basic Flow:</strong> The admin opens the monitoring dashboard, reviews zone status, changes zone categories if required, and manages active alerts or incidents. The system updates the affected records.</li>
+              <li><strong>7.6 Alternate Flow:</strong> If no alerts or updates are required, the system remains unchanged.</li>
+              <li><strong>7.7 Special Requirements:</strong> Fast dashboard response and role-based control.</li>
+              <li><strong>7.8 Use Case Relationships:</strong> Supports Receive Warnings and Trigger Panic.</li>
+            </ul>
+          </article>
+
+          <article class="usecase-doc">
+            <h4>Use Case 8. Handle Emergency</h4>
+            <ul class="explanation-list">
+              <li><strong>8.1 Introduction:</strong> This use case allows police or rescue teams to respond to panic alerts and dangerous incidents.</li>
+              <li><strong>8.2 Actors:</strong> Police/Rescue.</li>
+              <li><strong>8.3 Pre-Conditions:</strong> An active panic alert or incident must exist.</li>
+              <li><strong>8.4 Post-Conditions:</strong> The incident is acknowledged, updated, or resolved in the system.</li>
+              <li><strong>8.5 Basic Flow:</strong> The responder receives the panic alert, checks location and incident details, initiates the response, and updates the response status in the system.</li>
+              <li><strong>8.6 Alternate Flow:</strong> If the alert is invalid or already resolved, the responder records the status and closes the event.</li>
+              <li><strong>8.7 Special Requirements:</strong> Reliable alert visibility and responder coordination.</li>
+              <li><strong>8.8 Use Case Relationships:</strong> Triggered by Trigger Panic and related to Manage Zones & Alerts.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="er-diagram" class="section">
+      <div class="section-heading">
+        <span>06</span>
+        <h2>ER Diagram</h2>
+      </div>
+      <div class="card diagram-card">
+        <svg viewBox="0 0 1180 760" class="diagram">
+          <defs>
+            <marker id="erArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+            </marker>
+          </defs>
+
+          <g class="entity">
+            <rect x="60" y="90" width="210" height="80"></rect>
+            <text x="165" y="138" text-anchor="middle" class="diagram-title">Tourist</text>
+          </g>
+          <g class="entity">
+            <rect x="330" y="90" width="210" height="80"></rect>
+            <text x="435" y="138" text-anchor="middle" class="diagram-title">Location_Log</text>
+          </g>
+          <g class="entity">
+            <rect x="610" y="90" width="210" height="80"></rect>
+            <text x="715" y="138" text-anchor="middle" class="diagram-title">Safety_Zone</text>
+          </g>
+          <g class="entity">
+            <rect x="900" y="90" width="210" height="80"></rect>
+            <text x="1005" y="138" text-anchor="middle" class="diagram-title">Alert</text>
+          </g>
+          <g class="entity">
+            <rect x="60" y="350" width="210" height="80"></rect>
+            <text x="165" y="398" text-anchor="middle" class="diagram-title">Service_Provider</text>
+          </g>
+          <g class="entity">
+            <rect x="330" y="350" width="210" height="80"></rect>
+            <text x="435" y="398" text-anchor="middle" class="diagram-title">Service</text>
+          </g>
+          <g class="entity">
+            <rect x="610" y="350" width="210" height="80"></rect>
+            <text x="715" y="398" text-anchor="middle" class="diagram-title">Admin</text>
+          </g>
+          <g class="entity">
+            <rect x="900" y="350" width="210" height="80"></rect>
+            <text x="1005" y="398" text-anchor="middle" class="diagram-title">IoT_Device</text>
+          </g>
+
+          <line x1="270" y1="130" x2="330" y2="130" class="link" marker-end="url(#erArrow)"></line>
+          <text x="282" y="118" class="label">1 to many</text>
+
+          <line x1="540" y1="130" x2="610" y2="130" class="link" marker-end="url(#erArrow)"></line>
+          <text x="556" y="118" class="label">checked in</text>
+
+          <line x1="820" y1="130" x2="900" y2="130" class="link" marker-end="url(#erArrow)"></line>
+          <text x="836" y="118" class="label">triggers</text>
+
+          <line x1="270" y1="390" x2="330" y2="390" class="link" marker-end="url(#erArrow)"></line>
+          <text x="281" y="378" class="label">provides many</text>
+
+          <line x1="540" y1="390" x2="610" y2="390" class="link" marker-end="url(#erArrow)"></line>
+          <text x="551" y="378" class="label">verified by</text>
+
+          <line x1="715" y1="170" x2="715" y2="350" class="link" marker-end="url(#erArrow)"></line>
+          <text x="727" y="270" class="label">managed by</text>
+
+          <line x1="165" y1="170" x2="165" y2="350" class="link" marker-end="url(#erArrow)"></line>
+          <text x="177" y="270" class="label">may pair</text>
+          <line x1="165" y1="350" x2="900" y2="390" class="link"></line>
+          <text x="520" y="332" class="label">service context</text>
+        </svg>
+        <div class="legend">
+          <p><strong>Primary entities:</strong> Tourist, Location_Log, Safety_Zone, Alert, Service_Provider, Service, Admin, IoT_Device</p>
+          <p><strong>Core relations:</strong> a tourist creates many location logs and alerts, providers publish many services, admins verify services and manage zones, and IoT devices may be paired with tourists.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dfd" class="section">
+      <div class="section-heading">
+        <span>07</span>
+        <h2>Data Flow Diagrams</h2>
+      </div>
+      <div class="stack">
+        <div class="card diagram-card">
+          <h3>Context Diagram</h3>
+          <svg viewBox="0 0 1180 540" class="diagram">
+            <rect x="410" y="170" width="360" height="170" rx="20" class="process"></rect>
+            <text x="590" y="235" text-anchor="middle" class="diagram-title">Smart Tourist</text>
+            <text x="590" y="270" text-anchor="middle" class="diagram-title">Protection System</text>
+
+            <rect x="60" y="80" width="180" height="80" class="external"></rect>
+            <text x="150" y="128" text-anchor="middle">Tourist</text>
+
+            <rect x="60" y="360" width="180" height="80" class="external"></rect>
+            <text x="150" y="408" text-anchor="middle">Service Provider</text>
+
+            <rect x="940" y="80" width="180" height="80" class="external"></rect>
+            <text x="1030" y="128" text-anchor="middle">Admin / Tourism Dept.</text>
+
+            <rect x="940" y="360" width="180" height="80" class="external"></rect>
+            <text x="1030" y="408" text-anchor="middle">Police / Rescue Team</text>
+
+            <line x1="240" y1="120" x2="410" y2="205" class="link" marker-end="url(#arrow)"></line>
+            <text x="285" y="135" class="label">location, preferences, SOS</text>
+
+            <line x1="410" y1="305" x2="240" y2="400" class="link" marker-end="url(#arrow)"></line>
+            <text x="252" y="330" class="label">verification requests</text>
+
+            <line x1="770" y1="205" x2="940" y2="120" class="link" marker-end="url(#arrow)"></line>
+            <text x="812" y="145" class="label">dashboard, moderation, zone review</text>
+
+            <line x1="770" y1="305" x2="940" y2="400" class="link" marker-end="url(#arrow)"></line>
+            <text x="813" y="333" class="label">panic alerts, live location</text>
+
+            <line x1="410" y1="250" x2="240" y2="120" class="link" marker-end="url(#arrow)"></line>
+            <text x="267" y="225" class="label">recommendations, alerts</text>
+
+            <line x1="240" y1="400" x2="410" y2="290" class="link" marker-end="url(#arrow)"></line>
+            <text x="275" y="390" class="label">service details</text>
+
+            <line x1="940" y1="120" x2="770" y2="250" class="link" marker-end="url(#arrow)"></line>
+            <text x="814" y="220" class="label">zone updates, approvals</text>
+
+            <line x1="940" y1="400" x2="770" y2="270" class="link" marker-end="url(#arrow)"></line>
+            <text x="813" y="390" class="label">response status</text>
+          </svg>
+        </div>
+
+        <div class="card diagram-card">
+          <h3>Level-1 DFD</h3>
+          <svg viewBox="0 0 1180 700" class="diagram">
+            <rect x="430" y="40" width="300" height="90" rx="18" class="process"></rect>
+            <text x="580" y="95" text-anchor="middle">1.0 User & Profile Management</text>
+
+            <rect x="120" y="210" width="300" height="90" rx="18" class="process"></rect>
+            <text x="270" y="265" text-anchor="middle">2.0 Location & Geofence Monitoring</text>
+
+            <rect x="430" y="210" width="300" height="90" rx="18" class="process"></rect>
+            <text x="580" y="265" text-anchor="middle">3.0 Recommendation & Safety Scoring</text>
+
+            <rect x="740" y="210" width="300" height="90" rx="18" class="process"></rect>
+            <text x="890" y="265" text-anchor="middle">4.0 Alert & Emergency Handling</text>
+
+            <rect x="430" y="380" width="300" height="90" rx="18" class="process"></rect>
+            <text x="580" y="435" text-anchor="middle">5.0 Admin & Service Verification</text>
+
+            <rect x="70" y="530" width="170" height="70" class="store"></rect>
+            <text x="155" y="572" text-anchor="middle">D1 Tourist DB</text>
+
+            <rect x="300" y="530" width="170" height="70" class="store"></rect>
+            <text x="385" y="572" text-anchor="middle">D2 Zone DB</text>
+
+            <rect x="530" y="530" width="170" height="70" class="store"></rect>
+            <text x="615" y="572" text-anchor="middle">D3 Service DB</text>
+
+            <rect x="760" y="530" width="170" height="70" class="store"></rect>
+            <text x="845" y="572" text-anchor="middle">D4 Alert DB</text>
+
+            <rect x="990" y="530" width="130" height="70" class="store"></rect>
+            <text x="1055" y="572" text-anchor="middle">D5 AI Rules</text>
+
+            <rect x="40" y="40" width="150" height="70" class="external"></rect>
+            <text x="115" y="82" text-anchor="middle">Tourist</text>
+
+            <rect x="1010" y="40" width="140" height="70" class="external"></rect>
+            <text x="1080" y="82" text-anchor="middle">Admin</text>
+
+            <line x1="190" y1="75" x2="430" y2="75" class="link" marker-end="url(#arrow)"></line>
+            <line x1="115" y1="110" x2="270" y2="210" class="link" marker-end="url(#arrow)"></line>
+            <line x1="190" y1="90" x2="430" y2="240" class="link" marker-end="url(#arrow)"></line>
+            <line x1="190" y1="100" x2="740" y2="240" class="link" marker-end="url(#arrow)"></line>
+
+            <line x1="1010" y1="75" x2="730" y2="75" class="link" marker-end="url(#arrow)"></line>
+            <line x1="1080" y1="110" x2="580" y2="380" class="link" marker-end="url(#arrow)"></line>
+
+            <line x1="580" y1="130" x2="580" y2="210" class="link" marker-end="url(#arrow)"></line>
+            <line x1="420" y1="255" x2="430" y2="255" class="link" marker-end="url(#arrow)"></line>
+            <line x1="730" y1="255" x2="740" y2="255" class="link" marker-end="url(#arrow)"></line>
+            <line x1="580" y1="300" x2="580" y2="380" class="link" marker-end="url(#arrow)"></line>
+
+            <line x1="155" y1="530" x2="155" y2="130" class="link" marker-end="url(#arrow)"></line>
+            <line x1="385" y1="530" x2="385" y2="300" class="link" marker-end="url(#arrow)"></line>
+            <line x1="615" y1="530" x2="615" y2="470" class="link" marker-end="url(#arrow)"></line>
+            <line x1="845" y1="530" x2="845" y2="300" class="link" marker-end="url(#arrow)"></line>
+            <line x1="1055" y1="530" x2="650" y2="300" class="link" marker-end="url(#arrow)"></line>
+          </svg>
+        </div>
+
+        <div class="card diagram-card">
+          <h3>Level-2 DFD for 4.0 Alert & Emergency Handling</h3>
+          <svg viewBox="0 0 1180 700" class="diagram">
+            <rect x="120" y="100" width="220" height="80" rx="18" class="process"></rect>
+            <text x="230" y="148" text-anchor="middle">4.1 Receive Panic / Risk Event</text>
+
+            <rect x="470" y="100" width="250" height="80" rx="18" class="process"></rect>
+            <text x="595" y="148" text-anchor="middle">4.2 Validate Location & Tourist Data</text>
+
+            <rect x="840" y="100" width="220" height="80" rx="18" class="process"></rect>
+            <text x="950" y="148" text-anchor="middle">4.3 Generate Alert Priority</text>
+
+            <rect x="260" y="330" width="230" height="80" rx="18" class="process"></rect>
+            <text x="375" y="378" text-anchor="middle">4.4 Notify Tourist / Family</text>
+
+            <rect x="650" y="330" width="250" height="80" rx="18" class="process"></rect>
+            <text x="775" y="378" text-anchor="middle">4.5 Notify Admin / Responders</text>
+
+            <rect x="470" y="540" width="240" height="70" class="store"></rect>
+            <text x="590" y="582" text-anchor="middle">D4 Alert DB</text>
+
+            <rect x="40" y="320" width="150" height="70" class="external"></rect>
+            <text x="115" y="362" text-anchor="middle">Tourist App</text>
+
+            <rect x="1010" y="320" width="140" height="70" class="external"></rect>
+            <text x="1080" y="362" text-anchor="middle">Responder</text>
+
+            <line x1="190" y1="355" x2="120" y2="160" class="link" marker-end="url(#arrow)"></line>
+            <line x1="340" y1="140" x2="470" y2="140" class="link" marker-end="url(#arrow)"></line>
+            <line x1="720" y1="140" x2="840" y2="140" class="link" marker-end="url(#arrow)"></line>
+            <line x1="895" y1="180" x2="775" y2="330" class="link" marker-end="url(#arrow)"></line>
+            <line x1="900" y1="180" x2="375" y2="330" class="link" marker-end="url(#arrow)"></line>
+            <line x1="375" y1="410" x2="115" y2="355" class="link" marker-end="url(#arrow)"></line>
+            <line x1="900" y1="370" x2="1010" y2="355" class="link" marker-end="url(#arrow)"></line>
+            <line x1="590" y1="540" x2="590" y2="180" class="link" marker-end="url(#arrow)"></line>
+            <line x1="590" y1="540" x2="775" y2="410" class="link" marker-end="url(#arrow)"></line>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="sequence-diagram" class="section">
+      <div class="section-heading">
+        <span>08</span>
+        <h2>Sequence Diagram</h2>
+      </div>
+      <div class="card diagram-card">
+        <h3>Scenario: Tourist Enters a High-Risk Zone</h3>
+        <svg viewBox="0 0 1180 720" class="diagram">
+          <text x="120" y="50" text-anchor="middle" class="diagram-title">Tourist App</text>
+          <text x="360" y="50" text-anchor="middle" class="diagram-title">Backend</text>
+          <text x="610" y="50" text-anchor="middle" class="diagram-title">Geofence Engine</text>
+          <text x="860" y="50" text-anchor="middle" class="diagram-title">Alert Service</text>
+          <text x="1060" y="50" text-anchor="middle" class="diagram-title">Admin Portal</text>
+
+          <line x1="120" y1="70" x2="120" y2="650" class="lifeline"></line>
+          <line x1="360" y1="70" x2="360" y2="650" class="lifeline"></line>
+          <line x1="610" y1="70" x2="610" y2="650" class="lifeline"></line>
+          <line x1="860" y1="70" x2="860" y2="650" class="lifeline"></line>
+          <line x1="1060" y1="70" x2="1060" y2="650" class="lifeline"></line>
+
+          <line x1="120" y1="120" x2="360" y2="120" class="link" marker-end="url(#arrow)"></line>
+          <text x="240" y="108" class="label">1. sendLocation()</text>
+
+          <line x1="360" y1="180" x2="610" y2="180" class="link" marker-end="url(#arrow)"></line>
+          <text x="485" y="168" class="label">2. checkZone()</text>
+
+          <line x1="610" y1="240" x2="360" y2="240" class="link" marker-end="url(#arrow)"></line>
+          <text x="470" y="228" class="label">3. risk = RED</text>
+
+          <line x1="360" y1="300" x2="860" y2="300" class="link" marker-end="url(#arrow)"></line>
+          <text x="610" y="288" class="label">4. createRiskAlert()</text>
+
+          <line x1="860" y1="360" x2="120" y2="360" class="link" marker-end="url(#arrow)"></line>
+          <text x="470" y="348" class="label">5. pushWarning()</text>
+
+          <line x1="860" y1="430" x2="1060" y2="430" class="link" marker-end="url(#arrow)"></line>
+          <text x="945" y="418" class="label">6. publishIncident()</text>
+
+          <line x1="1060" y1="500" x2="860" y2="500" class="link" marker-end="url(#arrow)"></line>
+          <text x="946" y="488" class="label">7. acknowledge()</text>
+
+          <line x1="860" y1="570" x2="120" y2="570" class="link" marker-end="url(#arrow)"></line>
+          <text x="470" y="558" class="label">8. sendSafeRouteSuggestion()</text>
+        </svg>
+      </div>
+    </section>
+
+    <section id="interaction-diagram" class="section">
+      <div class="section-heading">
+        <span>09</span>
+        <h2>Interaction Diagram</h2>
+      </div>
+      <div class="card diagram-card">
+        <h3>Communication View: Panic Button Workflow</h3>
+        <svg viewBox="0 0 1180 700" class="diagram">
+          <circle cx="200" cy="200" r="70" class="node"></circle>
+          <text x="200" y="205" text-anchor="middle">Tourist App</text>
+
+          <circle cx="560" cy="120" r="72" class="node"></circle>
+          <text x="560" y="125" text-anchor="middle">Backend API</text>
+
+          <circle cx="910" cy="220" r="72" class="node"></circle>
+          <text x="910" y="225" text-anchor="middle">Alert Service</text>
+
+          <circle cx="820" cy="500" r="78" class="node"></circle>
+          <text x="820" y="505" text-anchor="middle">Police / Rescue</text>
+
+          <circle cx="380" cy="520" r="78" class="node"></circle>
+          <text x="380" y="525" text-anchor="middle">Family Contact</text>
+
+          <line x1="270" y1="185" x2="488" y2="135" class="link" marker-end="url(#arrow)"></line>
+          <text x="360" y="145" class="label">1: panicRequest</text>
+
+          <line x1="632" y1="140" x2="838" y2="205" class="link" marker-end="url(#arrow)"></line>
+          <text x="735" y="160" class="label">2: classifyAlert</text>
+
+          <line x1="870" y1="290" x2="820" y2="422" class="link" marker-end="url(#arrow)"></line>
+          <text x="848" y="360" class="label">3: dispatchResponder</text>
+
+          <line x1="830" y1="440" x2="448" y2="520" class="link" marker-end="url(#arrow)"></line>
+          <text x="625" y="467" class="label">4: shareLiveLocation</text>
+
+          <line x1="320" y1="490" x2="225" y2="270" class="link" marker-end="url(#arrow)"></line>
+          <text x="245" y="402" class="label">5: notifyStatus</text>
+
+          <line x1="760" y1="505" x2="612" y2="180" class="link" marker-end="url(#arrow)"></line>
+          <text x="704" y="338" class="label">6: responseUpdate</text>
+        </svg>
+      </div>
+    </section>
+
+    <section id="component-diagram" class="section">
+      <div class="section-heading">
+        <span>10</span>
+        <h2>Component Diagram</h2>
+      </div>
+      <div class="card diagram-card">
+        <svg viewBox="0 0 1180 760" class="diagram">
+          <rect x="50" y="140" width="210" height="120" class="component"></rect>
+          <text x="155" y="195" text-anchor="middle" class="diagram-title">Android App</text>
+          <text x="155" y="225" text-anchor="middle">UI, Maps, SOS, Cache</text>
+
+          <rect x="50" y="470" width="210" height="120" class="component"></rect>
+          <text x="155" y="525" text-anchor="middle" class="diagram-title">Admin Portal</text>
+          <text x="155" y="555" text-anchor="middle">Monitoring Dashboard</text>
+
+          <rect x="350" y="90" width="250" height="120" class="component"></rect>
+          <text x="475" y="145" text-anchor="middle" class="diagram-title">API Gateway</text>
+          <text x="475" y="175" text-anchor="middle">Auth, Routing, Validation</text>
+
+          <rect x="350" y="280" width="250" height="120" class="component"></rect>
+          <text x="475" y="335" text-anchor="middle" class="diagram-title">Location & Geofence Service</text>
+          <text x="475" y="365" text-anchor="middle">Zone Detection</text>
+
+          <rect x="350" y="470" width="250" height="120" class="component"></rect>
+          <text x="475" y="525" text-anchor="middle" class="diagram-title">Recommendation Service</text>
+          <text x="475" y="555" text-anchor="middle">AI + Rule Ranking</text>
+
+          <rect x="700" y="90" width="230" height="120" class="component"></rect>
+          <text x="815" y="145" text-anchor="middle" class="diagram-title">Alert Service</text>
+          <text x="815" y="175" text-anchor="middle">Push, SOS, Escalation</text>
+
+          <rect x="700" y="280" width="230" height="120" class="component"></rect>
+          <text x="815" y="335" text-anchor="middle" class="diagram-title">Provider Verification</text>
+          <text x="815" y="365" text-anchor="middle">Moderation Workflow</text>
+
+          <rect x="700" y="470" width="230" height="120" class="component"></rect>
+          <text x="815" y="525" text-anchor="middle" class="diagram-title">IoT Integration Service</text>
+          <text x="815" y="555" text-anchor="middle">Wearables / Tags</text>
+
+          <rect x="980" y="140" width="150" height="90" class="database"></rect>
+          <text x="1055" y="192" text-anchor="middle">PostgreSQL</text>
+
+          <rect x="980" y="300" width="150" height="90" class="database"></rect>
+          <text x="1055" y="352" text-anchor="middle">Redis Cache</text>
+
+          <rect x="980" y="460" width="150" height="90" class="database"></rect>
+          <text x="1055" y="512" text-anchor="middle">Notification Gateway</text>
+
+          <line x1="260" y1="200" x2="350" y2="150" class="link" marker-end="url(#arrow)"></line>
+          <line x1="260" y1="530" x2="350" y2="530" class="link" marker-end="url(#arrow)"></line>
+          <line x1="600" y1="150" x2="700" y2="150" class="link" marker-end="url(#arrow)"></line>
+          <line x1="600" y1="340" x2="700" y2="340" class="link" marker-end="url(#arrow)"></line>
+          <line x1="600" y1="530" x2="700" y2="530" class="link" marker-end="url(#arrow)"></line>
+          <line x1="475" y1="210" x2="475" y2="280" class="link" marker-end="url(#arrow)"></line>
+          <line x1="475" y1="400" x2="475" y2="470" class="link" marker-end="url(#arrow)"></line>
+          <line x1="930" y1="150" x2="980" y2="185" class="link" marker-end="url(#arrow)"></line>
+          <line x1="930" y1="340" x2="980" y2="345" class="link" marker-end="url(#arrow)"></line>
+          <line x1="930" y1="520" x2="980" y2="505" class="link" marker-end="url(#arrow)"></line>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Prepared for the Smart Tourist Protection System project based on the North East India government tourism safety brief.</p>
+  </footer>
+
+  <script>
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+const links = [...document.querySelectorAll(".nav-links a")];
+const sections = [...document.querySelectorAll("main section")];
+
+navToggle?.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+  });
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      links.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    });
+  },
+  {
+    rootMargin: "-30% 0px -55% 0px",
+    threshold: 0.1,
+  }
+);
+
+sections.forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>
