@@ -2356,41 +2356,144 @@ erDiagram
         <h2>Interaction Diagram</h2>
       </div>
       <div class="card diagram-card">
-        <h3>Communication View: Panic Button Workflow</h3>
-        <svg viewBox="0 0 1180 700" class="diagram">
-          <circle cx="200" cy="200" r="70" class="node"></circle>
-          <text x="200" y="205" text-anchor="middle">Tourist App</text>
+        <h3>Interaction Overview: Panic Alert Coordination</h3>
+        <svg viewBox="0 0 1180 860" class="diagram">
+          <defs>
+            <marker id="interactionArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+            </marker>
+          </defs>
 
-          <circle cx="560" cy="120" r="72" class="node"></circle>
-          <text x="560" y="125" text-anchor="middle">Backend API</text>
+          <circle cx="590" cy="55" r="12" fill="#111111"></circle>
 
-          <circle cx="910" cy="220" r="72" class="node"></circle>
-          <text x="910" y="225" text-anchor="middle">Alert Service</text>
+          <line x1="590" y1="67" x2="590" y2="95" class="link" marker-end="url(#interactionArrow)"></line>
+          <polygon points="590,95 606,115 590,135 574,115" fill="#dfead3" stroke="#59714a" stroke-width="2"></polygon>
 
-          <circle cx="820" cy="500" r="78" class="node"></circle>
-          <text x="820" y="505" text-anchor="middle">Police / Rescue</text>
+          <line x1="590" y1="135" x2="320" y2="135" class="link"></line>
+          <line x1="320" y1="135" x2="320" y2="175" class="link" marker-end="url(#interactionArrow)"></line>
+          <line x1="590" y1="135" x2="860" y2="135" class="link"></line>
+          <line x1="860" y1="135" x2="860" y2="175" class="link" marker-end="url(#interactionArrow)"></line>
 
-          <circle cx="380" cy="520" r="78" class="node"></circle>
-          <text x="380" y="525" text-anchor="middle">Family Contact</text>
+          <rect x="200" y="175" width="240" height="82" fill="#f7f6ef" stroke="#4a5f53" stroke-width="2"></rect>
+          <rect x="200" y="175" width="48" height="24" fill="#ffffff" stroke="#4a5f53" stroke-width="1.5"></rect>
+          <text x="224" y="191" text-anchor="middle" font-size="12">ref</text>
+          <text x="320" y="222" text-anchor="middle" class="diagram-title">validate tourist status</text>
 
-          <line x1="270" y1="185" x2="488" y2="135" class="link" marker-end="url(#arrow)"></line>
-          <text x="360" y="145" class="label">1: panicRequest</text>
+          <rect x="740" y="175" width="240" height="82" fill="#f7f6ef" stroke="#4a5f53" stroke-width="2"></rect>
+          <rect x="740" y="175" width="48" height="24" fill="#ffffff" stroke="#4a5f53" stroke-width="1.5"></rect>
+          <text x="764" y="191" text-anchor="middle" font-size="12">ref</text>
+          <text x="860" y="222" text-anchor="middle" class="diagram-title">reject unsafe request</text>
 
-          <line x1="632" y1="140" x2="838" y2="205" class="link" marker-end="url(#arrow)"></line>
-          <text x="735" y="160" class="label">2: classifyAlert</text>
+          <line x1="320" y1="257" x2="320" y2="290" class="link" marker-end="url(#interactionArrow)"></line>
+          <line x1="860" y1="257" x2="860" y2="290" class="link" marker-end="url(#interactionArrow)"></line>
 
-          <line x1="870" y1="290" x2="820" y2="422" class="link" marker-end="url(#arrow)"></line>
-          <text x="848" y="360" class="label">3: dispatchResponder</text>
+          <rect x="235" y="290" width="710" height="16" fill="#111111"></rect>
 
-          <line x1="830" y1="440" x2="448" y2="520" class="link" marker-end="url(#arrow)"></line>
-          <text x="625" y="467" class="label">4: shareLiveLocation</text>
+          <line x1="300" y1="306" x2="300" y2="340" class="link" marker-end="url(#interactionArrow)"></line>
+          <line x1="880" y1="306" x2="880" y2="340" class="link" marker-end="url(#interactionArrow)"></line>
 
-          <line x1="320" y1="490" x2="225" y2="270" class="link" marker-end="url(#arrow)"></line>
-          <text x="245" y="402" class="label">5: notifyStatus</text>
+          <rect x="85" y="340" width="350" height="190" fill="#ffffff" stroke="#3f5348" stroke-width="2"></rect>
+          <rect x="85" y="340" width="132" height="28" fill="#ffffff" stroke="#3f5348" stroke-width="1.5"></rect>
+          <text x="150" y="359" text-anchor="middle" font-size="13">sd Capture Risk</text>
+          <rect x="140" y="395" width="80" height="34" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <rect x="285" y="395" width="90" height="34" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <text x="180" y="417" text-anchor="middle" font-size="13">Tourist</text>
+          <text x="330" y="417" text-anchor="middle" font-size="13">Backend</text>
+          <line x1="180" y1="429" x2="180" y2="515" stroke="#666666" stroke-dasharray="8 7"></line>
+          <line x1="330" y1="429" x2="330" y2="515" stroke="#666666" stroke-dasharray="8 7"></line>
+          <rect x="175" y="452" width="10" height="28" class="seq-activation"></rect>
+          <rect x="325" y="452" width="10" height="28" class="seq-activation"></rect>
+          <line x1="185" y1="448" x2="325" y2="448" class="link" marker-end="url(#interactionArrow)"></line>
+          <text x="265" y="440" class="label">1: sendLocation</text>
 
-          <line x1="760" y1="505" x2="612" y2="180" class="link" marker-end="url(#arrow)"></line>
-          <text x="704" y="338" class="label">6: responseUpdate</text>
+          <rect x="500" y="340" width="350" height="190" fill="#ffffff" stroke="#3f5348" stroke-width="2"></rect>
+          <rect x="500" y="340" width="128" height="28" fill="#ffffff" stroke="#3f5348" stroke-width="1.5"></rect>
+          <text x="565" y="359" text-anchor="middle" font-size="13">sd Check Zone</text>
+          <rect x="540" y="395" width="92" height="34" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <rect x="700" y="395" width="98" height="34" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <text x="576" y="417" text-anchor="middle" font-size="13">Backend</text>
+          <text x="749" y="417" text-anchor="middle" font-size="13">Geofence</text>
+          <line x1="586" y1="429" x2="586" y2="515" stroke="#666666" stroke-dasharray="8 7"></line>
+          <line x1="749" y1="429" x2="749" y2="515" stroke="#666666" stroke-dasharray="8 7"></line>
+          <rect x="571" y="452" width="10" height="28" class="seq-activation"></rect>
+          <rect x="744" y="452" width="10" height="28" class="seq-activation"></rect>
+          <line x1="581" y1="448" x2="744" y2="448" class="link" marker-end="url(#interactionArrow)"></line>
+          <text x="656" y="440" class="label">2: checkZone</text>
+
+          <line x1="255" y1="530" x2="255" y2="565" class="link"></line>
+          <line x1="640" y1="530" x2="640" y2="565" class="link"></line>
+          <line x1="255" y1="565" x2="590" y2="565" class="link"></line>
+          <line x1="640" y1="565" x2="590" y2="565" class="link"></line>
+
+          <rect x="455" y="565" width="270" height="16" fill="#111111"></rect>
+
+          <line x1="590" y1="581" x2="590" y2="615" class="link" marker-end="url(#interactionArrow)"></line>
+          <polygon points="590,615 606,635 590,655 574,635" fill="#dfead3" stroke="#59714a" stroke-width="2"></polygon>
+
+          <line x1="590" y1="655" x2="320" y2="655" class="link"></line>
+          <line x1="320" y1="655" x2="320" y2="690" class="link" marker-end="url(#interactionArrow)"></line>
+          <line x1="590" y1="655" x2="860" y2="655" class="link"></line>
+          <line x1="860" y1="655" x2="860" y2="690" class="link" marker-end="url(#interactionArrow)"></line>
+
+          <rect x="150" y="690" width="340" height="132" fill="#ffffff" stroke="#3f5348" stroke-width="2"></rect>
+          <rect x="150" y="690" width="140" height="28" fill="#ffffff" stroke="#3f5348" stroke-width="1.5"></rect>
+          <text x="220" y="709" text-anchor="middle" font-size="13">sd Notify Tourist</text>
+          <rect x="230" y="738" width="85" height="32" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <rect x="350" y="738" width="80" height="32" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <text x="272" y="759" text-anchor="middle" font-size="13">Alert</text>
+          <text x="390" y="759" text-anchor="middle" font-size="13">Tourist</text>
+          <line x1="272" y1="770" x2="272" y2="808" stroke="#666666" stroke-dasharray="8 7"></line>
+          <line x1="390" y1="770" x2="390" y2="808" stroke="#666666" stroke-dasharray="8 7"></line>
+          <line x1="282" y1="784" x2="380" y2="784" class="link" marker-end="url(#interactionArrow)"></line>
+          <text x="333" y="778" class="label">3: pushWarning</text>
+
+          <rect x="690" y="690" width="360" height="132" fill="#ffffff" stroke="#3f5348" stroke-width="2"></rect>
+          <rect x="690" y="690" width="200" height="28" fill="#ffffff" stroke="#3f5348" stroke-width="1.5"></rect>
+          <text x="791" y="709" text-anchor="middle" font-size="13">sd Dispatch Response</text>
+          <rect x="748" y="738" width="86" height="32" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <rect x="884" y="738" width="84" height="32" fill="#dce8d9" stroke="#4c6458" stroke-width="1.5"></rect>
+          <text x="791" y="759" text-anchor="middle" font-size="13">Alert</text>
+          <text x="926" y="759" text-anchor="middle" font-size="13">Rescue</text>
+          <line x1="791" y1="770" x2="791" y2="808" stroke="#666666" stroke-dasharray="8 7"></line>
+          <line x1="926" y1="770" x2="926" y2="808" stroke="#666666" stroke-dasharray="8 7"></line>
+          <line x1="801" y1="784" x2="916" y2="784" class="link" marker-end="url(#interactionArrow)"></line>
+          <text x="858" y="778" class="label">4: dispatchResponder</text>
+
+          <line x1="322" y1="822" x2="322" y2="842" class="link"></line>
+          <line x1="852" y1="822" x2="852" y2="842" class="link"></line>
+          <line x1="322" y1="842" x2="587" y2="842" class="link"></line>
+          <line x1="852" y1="842" x2="587" y2="842" class="link"></line>
+          <circle cx="587" cy="842" r="14" fill="#111111"></circle>
+          <circle cx="587" cy="842" r="8" fill="#ffffff"></circle>
         </svg>
+        <div class="dfd-explanation">
+          <div class="mini-card">
+            <h4>What the Interaction Diagram Shows</h4>
+            <p>
+              This interaction overview diagram presents the control flow of the tourist emergency handling workflow.
+              It starts from the initial node, checks whether the tourist request is accepted or rejected, and then
+              moves through smaller interaction frames that capture risk data, check the zone, notify the tourist,
+              and dispatch emergency response support. The fork and join nodes show how multiple interaction paths
+              are coordinated before reaching the final activity end.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h4>Main Interaction Flow</h4>
+            <ul class="flow-list">
+              <li><strong>Initial node</strong> starts the emergency interaction control flow.</li>
+              <li><strong>Decision node</strong> checks whether the tourist request is valid and safe to continue.</li>
+              <li><strong>ref: validate tourist status</strong> represents checking the tourist state before processing.</li>
+              <li><strong>ref: reject unsafe request</strong> represents the alternate rejection path.</li>
+              <li><strong>Fork node</strong> splits the accepted control flow into parallel interaction frames.</li>
+              <li><strong>sd Capture Risk</strong> captures live location information from the tourist and forwards it to the backend.</li>
+              <li><strong>sd Check Zone</strong> checks the incoming data against geofence and risk-zone logic.</li>
+              <li><strong>Join node</strong> synchronizes both interaction paths before the next decision.</li>
+              <li><strong>sd Notify Tourist</strong> sends the generated warning back to the tourist side.</li>
+              <li><strong>sd Dispatch Response</strong> sends the alert to rescue authorities for action.</li>
+              <li><strong>Activity final</strong> marks the completion of the interaction workflow.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2400,59 +2503,143 @@ erDiagram
         <h2>Component Diagram</h2>
       </div>
       <div class="card diagram-card">
-        <svg viewBox="0 0 1180 760" class="diagram">
-          <rect x="50" y="140" width="210" height="120" class="component"></rect>
-          <text x="155" y="195" text-anchor="middle" class="diagram-title">Android App</text>
-          <text x="155" y="225" text-anchor="middle">UI, Maps, SOS, Cache</text>
+        <svg viewBox="0 0 1280 900" class="diagram">
+          <rect x="90" y="110" width="380" height="520" fill="rgba(231,239,233,0.86)" stroke="#41564a" stroke-width="2.5"></rect>
+          <rect x="90" y="110" width="380" height="52" fill="rgba(244,247,240,0.95)" stroke="#41564a" stroke-width="2"></rect>
+          <text x="280" y="140" text-anchor="middle" class="diagram-title">&lt;&lt;subsystem&gt;&gt; Mobile Frontend</text>
+          <text x="280" y="190" text-anchor="middle" font-size="15">internal structure</text>
 
-          <rect x="50" y="470" width="210" height="120" class="component"></rect>
-          <text x="155" y="525" text-anchor="middle" class="diagram-title">Admin Portal</text>
-          <text x="155" y="555" text-anchor="middle">Monitoring Dashboard</text>
+          <rect x="170" y="230" width="160" height="70" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="250" y="272" text-anchor="middle" class="diagram-title">Map & Safety View</text>
+          <rect x="170" y="380" width="160" height="70" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="250" y="422" text-anchor="middle" class="diagram-title">Panic & Alerts</text>
+          <rect x="170" y="525" width="160" height="70" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="250" y="567" text-anchor="middle" class="diagram-title">Auth & Session</text>
 
-          <rect x="350" y="90" width="250" height="120" class="component"></rect>
-          <text x="475" y="145" text-anchor="middle" class="diagram-title">API Gateway</text>
-          <text x="475" y="175" text-anchor="middle">Auth, Routing, Validation</text>
+          <rect x="610" y="110" width="320" height="255" fill="rgba(231,239,233,0.86)" stroke="#41564a" stroke-width="2.5"></rect>
+          <rect x="610" y="110" width="320" height="52" fill="rgba(244,247,240,0.95)" stroke="#41564a" stroke-width="2"></rect>
+          <text x="770" y="140" text-anchor="middle" class="diagram-title">&lt;&lt;subsystem&gt;&gt; Data Layer</text>
+          <text x="770" y="190" text-anchor="middle" font-size="15">internal structure</text>
+          <rect x="690" y="230" width="160" height="70" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="770" y="272" text-anchor="middle" class="diagram-title">Tourism Data Store</text>
 
-          <rect x="350" y="280" width="250" height="120" class="component"></rect>
-          <text x="475" y="335" text-anchor="middle" class="diagram-title">Location & Geofence Service</text>
-          <text x="475" y="365" text-anchor="middle">Zone Detection</text>
+          <rect x="610" y="420" width="320" height="360" fill="rgba(231,239,233,0.86)" stroke="#41564a" stroke-width="2.5"></rect>
+          <rect x="610" y="420" width="320" height="52" fill="rgba(244,247,240,0.95)" stroke="#41564a" stroke-width="2"></rect>
+          <text x="770" y="450" text-anchor="middle" class="diagram-title">&lt;&lt;subsystem&gt;&gt; Backend Services</text>
+          <text x="770" y="500" text-anchor="middle" font-size="15">internal structure</text>
 
-          <rect x="350" y="470" width="250" height="120" class="component"></rect>
-          <text x="475" y="525" text-anchor="middle" class="diagram-title">Recommendation Service</text>
-          <text x="475" y="555" text-anchor="middle">AI + Rule Ranking</text>
+          <rect x="690" y="535" width="160" height="68" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="770" y="575" text-anchor="middle" class="diagram-title">Alert Engine</text>
+          <rect x="690" y="635" width="160" height="68" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="770" y="675" text-anchor="middle" class="diagram-title">Recommendation API</text>
+          <rect x="690" y="725" width="160" height="68" fill="#cfe5b7" stroke="#526649" stroke-width="2"></rect>
+          <text x="770" y="765" text-anchor="middle" class="diagram-title">Admin Control</text>
 
-          <rect x="700" y="90" width="230" height="120" class="component"></rect>
-          <text x="815" y="145" text-anchor="middle" class="diagram-title">Alert Service</text>
-          <text x="815" y="175" text-anchor="middle">Push, SOS, Escalation</text>
+          <line x1="250" y1="300" x2="250" y2="380" stroke="#5c6f64" stroke-width="2"></line>
+          <line x1="250" y1="450" x2="250" y2="525" stroke="#5c6f64" stroke-width="2"></line>
+          <line x1="770" y1="603" x2="770" y2="635" stroke="#5c6f64" stroke-width="2"></line>
+          <line x1="770" y1="703" x2="770" y2="725" stroke="#5c6f64" stroke-width="2"></line>
 
-          <rect x="700" y="280" width="230" height="120" class="component"></rect>
-          <text x="815" y="335" text-anchor="middle" class="diagram-title">Provider Verification</text>
-          <text x="815" y="365" text-anchor="middle">Moderation Workflow</text>
+          <line x1="30" y1="260" x2="90" y2="260" class="link"></line>
+          <circle cx="30" cy="260" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <circle cx="120" cy="260" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="112" y="252" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="32" y="232" class="label">View Safety Map</text>
 
-          <rect x="700" y="470" width="230" height="120" class="component"></rect>
-          <text x="815" y="525" text-anchor="middle" class="diagram-title">IoT Integration Service</text>
-          <text x="815" y="555" text-anchor="middle">Wearables / Tags</text>
+          <line x1="30" y1="410" x2="90" y2="410" class="link"></line>
+          <circle cx="30" cy="410" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <circle cx="120" cy="410" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="112" y="402" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="32" y="382" class="label">Send SOS</text>
 
-          <rect x="980" y="140" width="150" height="90" class="database"></rect>
-          <text x="1055" y="192" text-anchor="middle">PostgreSQL</text>
+          <line x1="30" y1="560" x2="90" y2="560" class="link"></line>
+          <circle cx="30" cy="560" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <circle cx="120" cy="560" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="112" y="552" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="28" y="532" class="label">User Session</text>
 
-          <rect x="980" y="300" width="150" height="90" class="database"></rect>
-          <text x="1055" y="352" text-anchor="middle">Redis Cache</text>
+          <line x1="470" y1="260" x2="610" y2="260" class="link" stroke-dasharray="10 8"></line>
+          <circle cx="500" cy="260" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="462" y="252" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <circle cx="580" cy="260" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="602" y="252" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="508" y="232" class="label">Request Safety Data</text>
 
-          <rect x="980" y="460" width="150" height="90" class="database"></rect>
-          <text x="1055" y="512" text-anchor="middle">Notification Gateway</text>
+          <line x1="470" y1="410" x2="610" y2="570" class="link" stroke-dasharray="10 8"></line>
+          <circle cx="500" cy="410" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="462" y="402" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <circle cx="580" cy="530" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="602" y="562" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="485" y="455" class="label">Dispatch Risk Alert</text>
 
-          <line x1="260" y1="200" x2="350" y2="150" class="link" marker-end="url(#arrow)"></line>
-          <line x1="260" y1="530" x2="350" y2="530" class="link" marker-end="url(#arrow)"></line>
-          <line x1="600" y1="150" x2="700" y2="150" class="link" marker-end="url(#arrow)"></line>
-          <line x1="600" y1="340" x2="700" y2="340" class="link" marker-end="url(#arrow)"></line>
-          <line x1="600" y1="530" x2="700" y2="530" class="link" marker-end="url(#arrow)"></line>
-          <line x1="475" y1="210" x2="475" y2="280" class="link" marker-end="url(#arrow)"></line>
-          <line x1="475" y1="400" x2="475" y2="470" class="link" marker-end="url(#arrow)"></line>
-          <line x1="930" y1="150" x2="980" y2="185" class="link" marker-end="url(#arrow)"></line>
-          <line x1="930" y1="340" x2="980" y2="345" class="link" marker-end="url(#arrow)"></line>
-          <line x1="930" y1="520" x2="980" y2="505" class="link" marker-end="url(#arrow)"></line>
+          <line x1="470" y1="560" x2="610" y2="750" class="link" stroke-dasharray="10 8"></line>
+          <circle cx="500" cy="560" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="462" y="552" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <circle cx="580" cy="735" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="602" y="742" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="485" y="640" class="label">Manage Access Control</text>
+
+          <line x1="930" y1="260" x2="1080" y2="260" class="link" stroke-dasharray="10 8"></line>
+          <circle cx="960" cy="260" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="922" y="252" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <circle cx="1050" cy="260" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="1072" y="252" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="962" y="232" class="label">Read Zone / Provider Data</text>
+
+          <line x1="930" y1="570" x2="1080" y2="570" class="link" stroke-dasharray="10 8"></line>
+          <circle cx="960" cy="570" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="922" y="562" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <circle cx="1050" cy="570" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="1072" y="562" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="974" y="542" class="label">Send Emergency Notification</text>
+
+          <line x1="930" y1="750" x2="1080" y2="750" class="link" stroke-dasharray="10 8"></line>
+          <circle cx="960" cy="750" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="922" y="742" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <circle cx="1050" cy="750" r="8" fill="#ffffff" stroke="#41564a" stroke-width="2"></circle>
+          <rect x="1072" y="742" width="16" height="16" fill="#ffffff" stroke="#41564a" stroke-width="1.5"></rect>
+          <text x="980" y="722" class="label">Publish Admin Reports</text>
+
+          <path d="M1088 260 C1140 260, 1160 350, 1160 470" class="link" stroke-dasharray="10 8"></path>
+          <path d="M1160 470 C1160 640, 1135 750, 1088 750" class="link" stroke-dasharray="10 8"></path>
+          <text x="1130" y="380" class="label">shared outputs</text>
         </svg>
+        <div class="dfd-explanation">
+          <div class="mini-card">
+            <h4>What the Component Diagram Shows</h4>
+            <p>
+              This component diagram shows the high-level software structure of the Smart Tourist Protection System.
+              The system is divided into major subsystems such as the mobile frontend, backend services, and data layer.
+              Each subsystem contains smaller internal components that cooperate through defined interfaces to deliver
+              tourist safety monitoring, alerts, recommendations, and administrative control.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h4>Subsystem and Component Description</h4>
+            <ul class="flow-list">
+              <li><strong>Mobile Frontend subsystem</strong> contains the user-facing app features.</li>
+              <li><strong>Map &amp; Safety View</strong> displays zones, destinations, and live safety information to tourists.</li>
+              <li><strong>Panic &amp; Alerts</strong> manages SOS actions, warnings, and emergency notifications in the app.</li>
+              <li><strong>Auth &amp; Session</strong> handles user login, identity, and session continuity.</li>
+              <li><strong>Data Layer subsystem</strong> stores the verified tourism and safety information required by the system.</li>
+              <li><strong>Tourism Data Store</strong> represents the structured storage for services, zones, and travel-related records.</li>
+              <li><strong>Backend Services subsystem</strong> contains the core processing logic of the platform.</li>
+              <li><strong>Alert Engine</strong> creates risk alerts and supports emergency communication flow.</li>
+              <li><strong>Recommendation API</strong> generates safer service and route suggestions for tourists.</li>
+              <li><strong>Admin Control</strong> supports government-side approval, reporting, and monitoring actions.</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h4>How the Components Interact</h4>
+            <ul class="flow-list">
+              <li>The frontend requests safety data from the data layer to display zones and provider information.</li>
+              <li>The panic module sends risk alerts from the frontend to backend emergency services.</li>
+              <li>The authentication component coordinates access control with backend administration logic.</li>
+              <li>The backend reads tourism and safety data from the data layer for decisions and recommendations.</li>
+              <li>The backend publishes emergency notifications and admin reports through shared output interfaces.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
